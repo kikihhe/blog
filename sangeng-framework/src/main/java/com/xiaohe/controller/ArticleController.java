@@ -1,8 +1,10 @@
 package com.xiaohe.controller;
 
 import com.xiaohe.domain.entity.Article;
+import com.xiaohe.domain.vo.HotArticle;
 import com.xiaohe.service.ArticleService;
 import com.xiaohe.utils.Result;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,7 @@ import java.util.List;
  * @Description :
  * @date : 2023-01-02 21:02
  */
+@Slf4j
 @RestController
 @RequestMapping("/article")
 public class ArticleController {
@@ -25,5 +28,19 @@ public class ArticleController {
     public Result getAllArticle() {
         List<Article> list = articleService.list();
         return Result.success(list);
+    }
+
+
+    /**
+     * 获取热门文章列表：按照访问量排序的前10个
+     * HotArticle:
+     * Long id
+     * String title
+     * Long viewCount
+     */
+    @GetMapping("/hotArticleList")
+    public Result hotArticleList() {
+        List<HotArticle> hotArticles = articleService.getHotArticle();
+        return Result.success(hotArticles);
     }
 }
