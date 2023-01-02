@@ -22,3 +22,7 @@ mybatis-plus:
       logic-not-delete-value: 0
       id-type: auto
       logic-delete-field: delFlag
+logging:
+  file:
+    path: D:\JAVA-projects\Bolg
+

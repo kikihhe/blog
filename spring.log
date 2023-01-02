@@ -1,0 +1,172 @@
+2023-01-02 21:04:05.676 ERROR 3824 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'logging.level' to java.util.Map<java.lang.String, org.springframework.boot.logging.LogLevel>:
+
+    Reason: No converter found capable of converting from type [java.lang.String] to type [java.util.Map<java.lang.String, org.springframework.boot.logging.LogLevel>]
+
+Action:
+
+Update your application's configuration
+
+2023-01-02 21:05:00.889  INFO 19224 --- [main] com.xiaohe.SanGengBlogApplication        : Starting SanGengBlogApplication using Java 1.8.0_202 on ABC with PID 19224 (D:\JAVA-projects\Bolg\sangeng-blog\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-01-02 21:05:00.891  INFO 19224 --- [main] com.xiaohe.SanGengBlogApplication        : No active profile set, falling back to default profiles: default
+2023-01-02 21:05:01.297  INFO 19224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-02 21:05:01.297  INFO 19224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-02 21:05:01.314  INFO 19224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2023-01-02 21:05:01.637  INFO 19224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7777 (http)
+2023-01-02 21:05:01.643  INFO 19224 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-02 21:05:01.643  INFO 19224 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-01-02 21:05:01.757  INFO 19224 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-02 21:05:01.759  INFO 19224 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 842 ms
+2023-01-02 21:05:03.330  INFO 19224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7777 (http) with context path ''
+2023-01-02 21:05:03.337  INFO 19224 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 2.737 seconds (JVM running for 3.814)
+2023-01-02 21:05:03.338  INFO 19224 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-01-02 21:05:03.339  INFO 19224 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-02 21:07:36.782  INFO 19224 --- [http-nio-7777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-02 21:07:36.782  INFO 19224 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-02 21:07:36.783  INFO 19224 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-02 21:07:36.843  INFO 19224 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-02 21:07:36.937  INFO 19224 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-02 21:07:37.031  WARN 19224 --- [http-nio-7777-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
+2023-01-02 21:08:33.008  INFO 3936 --- [main] com.xiaohe.SanGengBlogApplication        : Starting SanGengBlogApplication using Java 1.8.0_202 on ABC with PID 3936 (D:\JAVA-projects\Bolg\sangeng-blog\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-01-02 21:08:33.009  INFO 3936 --- [main] com.xiaohe.SanGengBlogApplication        : No active profile set, falling back to default profiles: default
+2023-01-02 21:08:33.431  INFO 3936 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-02 21:08:33.431  INFO 3936 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-02 21:08:33.447  INFO 3936 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2023-01-02 21:08:33.764  INFO 3936 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7777 (http)
+2023-01-02 21:08:33.769  INFO 3936 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-02 21:08:33.769  INFO 3936 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-01-02 21:08:33.884  INFO 3936 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-02 21:08:33.889  INFO 3936 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 851 ms
+2023-01-02 21:08:35.546  INFO 3936 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7777 (http) with context path ''
+2023-01-02 21:08:35.553  INFO 3936 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 2.841 seconds (JVM running for 3.908)
+2023-01-02 21:08:35.554  INFO 3936 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-01-02 21:08:35.555  INFO 3936 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-02 21:08:42.549  INFO 3936 --- [http-nio-7777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-02 21:08:42.549  INFO 3936 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-02 21:08:42.550  INFO 3936 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-01-02 21:08:42.600  INFO 3936 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-02 21:08:42.694  INFO 3936 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-02 21:08:42.757  WARN 3936 --- [http-nio-7777-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
+2023-01-02 21:09:07.393  INFO 19336 --- [main] com.xiaohe.SanGengBlogApplication        : Starting SanGengBlogApplication using Java 1.8.0_202 on ABC with PID 19336 (D:\JAVA-projects\Bolg\sangeng-blog\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-01-02 21:09:07.394  INFO 19336 --- [main] com.xiaohe.SanGengBlogApplication        : No active profile set, falling back to default profiles: default
+2023-01-02 21:09:07.813  INFO 19336 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-02 21:09:07.815  INFO 19336 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-02 21:09:07.830  INFO 19336 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2023-01-02 21:09:08.142  INFO 19336 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7777 (http)
+2023-01-02 21:09:08.148  INFO 19336 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-02 21:09:08.148  INFO 19336 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-01-02 21:09:08.267  INFO 19336 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-02 21:09:08.267  INFO 19336 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 845 ms
+2023-01-02 21:09:09.875  INFO 19336 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7777 (http) with context path ''
+2023-01-02 21:09:09.881  INFO 19336 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 2.763 seconds (JVM running for 3.841)
+2023-01-02 21:09:09.882  INFO 19336 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-01-02 21:09:09.883  INFO 19336 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-02 21:09:13.880  INFO 19336 --- [http-nio-7777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-02 21:09:13.880  INFO 19336 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-02 21:09:13.881  INFO 19336 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-02 21:09:13.933  INFO 19336 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-02 21:09:14.022  INFO 19336 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-02 21:09:14.085  WARN 19336 --- [http-nio-7777-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
+2023-01-02 21:10:04.085  WARN 19336 --- [http-nio-7777-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
+2023-01-02 21:10:28.517  WARN 19336 --- [http-nio-7777-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
+2023-01-02 21:11:30.272  WARN 19336 --- [http-nio-7777-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
+2023-01-02 21:12:28.064  INFO 7688 --- [main] com.xiaohe.SanGengBlogApplication        : Starting SanGengBlogApplication using Java 1.8.0_202 on ABC with PID 7688 (D:\JAVA-projects\Bolg\sangeng-blog\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-01-02 21:12:28.066  INFO 7688 --- [main] com.xiaohe.SanGengBlogApplication        : No active profile set, falling back to default profiles: default
+2023-01-02 21:12:28.557  INFO 7688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-02 21:12:28.558  INFO 7688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-02 21:12:28.576  INFO 7688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2023-01-02 21:12:28.975  INFO 7688 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7777 (http)
+2023-01-02 21:12:28.982  INFO 7688 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-02 21:12:28.983  INFO 7688 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-01-02 21:12:29.101  INFO 7688 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-02 21:12:29.101  INFO 7688 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1001 ms
+2023-01-02 21:12:30.805  INFO 7688 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7777 (http) with context path ''
+2023-01-02 21:12:30.811  INFO 7688 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 3.087 seconds (JVM running for 4.679)
+2023-01-02 21:12:30.812  INFO 7688 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-01-02 21:12:30.813  INFO 7688 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-02 21:12:34.433  INFO 7688 --- [http-nio-7777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-02 21:12:34.433  INFO 7688 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-02 21:12:34.434  INFO 7688 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-02 21:12:34.495  INFO 7688 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-02 21:12:34.605  INFO 7688 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-02 21:12:54.875  WARN 7688 --- [http-nio-7777-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
+2023-01-02 21:14:31.775  WARN 7688 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m52s685ms446µs500ns).
+2023-01-02 21:14:31.775  WARN 7688 --- [http-nio-7777-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
+2023-01-02 21:14:37.508  INFO 3808 --- [main] com.xiaohe.SanGengBlogApplication        : Starting SanGengBlogApplication using Java 1.8.0_202 on ABC with PID 3808 (D:\JAVA-projects\Bolg\sangeng-blog\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-01-02 21:14:37.510  INFO 3808 --- [main] com.xiaohe.SanGengBlogApplication        : No active profile set, falling back to default profiles: default
+2023-01-02 21:14:38.000  INFO 3808 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-02 21:14:38.001  INFO 3808 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-02 21:14:38.020  INFO 3808 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2023-01-02 21:14:38.407  INFO 3808 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7777 (http)
+2023-01-02 21:14:38.413  INFO 3808 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-02 21:14:38.413  INFO 3808 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-01-02 21:14:38.540  INFO 3808 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-02 21:14:38.540  INFO 3808 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 998 ms
+2023-01-02 21:14:40.294  INFO 3808 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7777 (http) with context path ''
+2023-01-02 21:14:40.301  INFO 3808 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 3.109 seconds (JVM running for 4.295)
+2023-01-02 21:14:40.302  INFO 3808 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-01-02 21:14:40.304  INFO 3808 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-02 21:14:55.395  INFO 18108 --- [main] com.xiaohe.SanGengBlogApplication        : Starting SanGengBlogApplication using Java 1.8.0_202 on ABC with PID 18108 (D:\JAVA-projects\Bolg\sangeng-blog\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-01-02 21:14:55.397  INFO 18108 --- [main] com.xiaohe.SanGengBlogApplication        : No active profile set, falling back to default profiles: default
+2023-01-02 21:14:55.877  INFO 18108 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-02 21:14:55.879  INFO 18108 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-02 21:14:55.897  INFO 18108 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2023-01-02 21:14:56.264  INFO 18108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7777 (http)
+2023-01-02 21:14:56.271  INFO 18108 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-02 21:14:56.271  INFO 18108 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-01-02 21:14:56.394  INFO 18108 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-02 21:14:56.394  INFO 18108 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 965 ms
+2023-01-02 21:14:58.036  INFO 18108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7777 (http) with context path ''
+2023-01-02 21:14:58.044  INFO 18108 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 2.977 seconds (JVM running for 4.142)
+2023-01-02 21:14:58.046  INFO 18108 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-01-02 21:14:58.047  INFO 18108 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-02 21:15:01.476  INFO 18108 --- [http-nio-7777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-02 21:15:01.476  INFO 18108 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-02 21:15:01.477  INFO 18108 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-02 21:15:01.546  INFO 18108 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-02 21:15:01.635  INFO 18108 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-02 21:21:37.208  INFO 18428 --- [main] com.xiaohe.SanGengBlogApplication        : Starting SanGengBlogApplication using Java 1.8.0_202 on ABC with PID 18428 (D:\JAVA-projects\Bolg\sangeng-blog\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-01-02 21:21:37.210  INFO 18428 --- [main] com.xiaohe.SanGengBlogApplication        : No active profile set, falling back to default profiles: default
+2023-01-02 21:21:37.637  INFO 18428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-02 21:21:37.639  INFO 18428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-02 21:21:37.655  INFO 18428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2023-01-02 21:21:37.987  INFO 18428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7777 (http)
+2023-01-02 21:21:37.993  INFO 18428 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-02 21:21:37.994  INFO 18428 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-01-02 21:21:38.115  INFO 18428 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-02 21:21:38.115  INFO 18428 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 876 ms
+2023-01-02 21:21:39.798  INFO 18428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7777 (http) with context path ''
+2023-01-02 21:21:39.805  INFO 18428 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 2.888 seconds (JVM running for 3.956)
+2023-01-02 21:21:39.805  INFO 18428 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-01-02 21:21:39.806  INFO 18428 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-02 21:22:02.068  INFO 18428 --- [http-nio-7777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-02 21:22:02.068  INFO 18428 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-02 21:22:02.069  INFO 18428 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-02 21:22:02.120  INFO 18428 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-02 21:22:02.213  INFO 18428 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-02 21:23:06.089  INFO 21468 --- [main] com.xiaohe.SanGengBlogApplication        : Starting SanGengBlogApplication using Java 1.8.0_202 on ABC with PID 21468 (D:\JAVA-projects\Bolg\sangeng-blog\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-01-02 21:23:06.091  INFO 21468 --- [main] com.xiaohe.SanGengBlogApplication        : No active profile set, falling back to default profiles: default
+2023-01-02 21:23:06.567  INFO 21468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-02 21:23:06.569  INFO 21468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-02 21:23:06.587  INFO 21468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2023-01-02 21:23:06.964  INFO 21468 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7777 (http)
+2023-01-02 21:23:06.971  INFO 21468 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-02 21:23:06.971  INFO 21468 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-01-02 21:23:07.092  INFO 21468 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-02 21:23:07.092  INFO 21468 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 966 ms
+2023-01-02 21:23:08.816  INFO 21468 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7777 (http) with context path ''
+2023-01-02 21:23:08.823  INFO 21468 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 3.069 seconds (JVM running for 4.196)
+2023-01-02 21:23:08.824  INFO 21468 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-01-02 21:23:08.826  INFO 21468 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-02 21:23:19.952  INFO 21468 --- [http-nio-7777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-02 21:23:19.952  INFO 21468 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-02 21:23:19.952  INFO 21468 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-01-02 21:23:25.122  INFO 21468 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-02 21:23:25.558  INFO 21468 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
