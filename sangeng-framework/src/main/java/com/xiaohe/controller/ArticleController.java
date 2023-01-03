@@ -5,6 +5,7 @@ import com.xiaohe.domain.vo.HotArticle;
 import com.xiaohe.service.ArticleService;
 import com.xiaohe.utils.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,6 +44,7 @@ public class ArticleController {
     @GetMapping("/hotArticleList")
     public Result hotArticleList() {
         List<HotArticle> hotArticles = articleService.getHotArticle();
+
         return Result.success(hotArticles);
     }
 }
