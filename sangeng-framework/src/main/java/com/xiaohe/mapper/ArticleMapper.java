@@ -2,8 +2,10 @@ package com.xiaohe.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xiaohe.domain.entity.Article;
+import com.xiaohe.domain.vo.ArticleListVo;
 import com.xiaohe.domain.vo.HotArticle;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,4 +17,8 @@ import java.util.List;
 @Mapper
 public interface ArticleMapper extends BaseMapper<Article> {
     public List<HotArticle> getArticleByViewCount();
+
+    public List<ArticleListVo> getArticle(@Param("begin") Integer begin,
+                                          @Param("pageSize") Integer pageSize,
+                                          @Param("categoryId") Long categoryId);
 }

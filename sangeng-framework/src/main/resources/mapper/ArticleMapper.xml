@@ -11,4 +11,24 @@
         order by view_count desc
         limit 0,10;
     </select>
+
+
+
+    <select id="getArticle" resultType="com.xiaohe.domain.vo.ArticleListVo">
+        select a.id, a.create_time, a.view_count, a.summary, a.thumbnail, a.title, c.name as categoryName
+        from article a, category c
+        <where>
+            <if test="categoryId > 0">
+                a.category_id = #{categoryId}
+            </if>
+            and a.status = 0
+            and a.del_flag = 0
+            and  a.category_id = c.id
+        </where>
+        order by a.is_top desc, a.create_time desc
+        limit #{begin}, #{pageSize};
+    </select>
+
+
+
 </mapper>

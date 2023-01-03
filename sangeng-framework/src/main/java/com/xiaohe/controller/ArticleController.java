@@ -1,16 +1,15 @@
 package com.xiaohe.controller;
 
 import com.xiaohe.domain.entity.Article;
+import com.xiaohe.domain.vo.ArticleListVo;
+import com.xiaohe.domain.vo.ArticlePageVo;
 import com.xiaohe.domain.vo.HotArticle;
 import com.xiaohe.service.ArticleService;
 import com.xiaohe.utils.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -46,5 +45,27 @@ public class ArticleController {
         List<HotArticle> hotArticles = articleService.getHotArticle();
 
         return Result.success(hotArticles);
+    }
+
+
+    /**
+     * 查询文章，可能分页，也可能按照文章分类查询
+     * @param pageNum 第几页
+     * @param pageSize 每一页有多少条数据
+     * @param categoryId 分类的id
+     * @return
+     */
+    @GetMapping("/articleList")
+    public Result articleList(@RequestParam("pageNum") Integer pageNum,
+                              @RequestParam("pageSize") Integer pageSize,
+                              @RequestParam("categoryId") Long categoryId) {
+        // 使用Mysql的limit分页，计算起始下标
+        Integer begin = (pageNum - 1) * pageSize;
+        List<ArticleListVo> articles = articleService.getArticleList(begin, pageSize, categoryId);
+        ArticlePageVo list = new ArticlePageVo(articles);
+
+        return Result.success(list);
+
+
     }
 }

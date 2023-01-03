@@ -6,6 +6,7 @@ import com.xiaohe.mapper.CategoryMapper;
 import com.xiaohe.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @date : 2023-01-03 13:29
  */
 @Service
+@Transactional
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements CategoryService {
 
     @Autowired
