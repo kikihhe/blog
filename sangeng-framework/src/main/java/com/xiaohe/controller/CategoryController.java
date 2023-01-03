@@ -28,8 +28,7 @@ public class CategoryController {
 
     @GetMapping("/getCategoryList")
     public Result getCategoryList() {
-
-        List<Category> list = categoryService.list();
+        List<Category> list = categoryService.getCategoryList();
         return Result.success(list);
     }
 }

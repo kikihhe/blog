@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xiaohe.domain.entity.Category;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * @author : 小何
  * @Description :
@@ -11,4 +13,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface CategoryMapper extends BaseMapper<Category> {
+    public List<Category> getCategoryList();
 }

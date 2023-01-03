@@ -4,4 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xiaohe.mapper.CategoryMapper">
 
+    <select id="getCategoryList" resultType="com.xiaohe.domain.entity.Category">
+        select *
+        from category
+        where status = 0;
+    </select>
 </mapper>
