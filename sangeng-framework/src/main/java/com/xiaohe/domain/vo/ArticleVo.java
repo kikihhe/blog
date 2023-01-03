@@ -19,7 +19,7 @@ public class ArticleVo {
     //文章摘要
     private String summary;
     //所属分类id
-    private Long categoryId;
+    private Long categoryName;
 
     //缩略图
     private String thumbnail;

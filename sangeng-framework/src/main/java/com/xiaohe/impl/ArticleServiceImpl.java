@@ -2,7 +2,9 @@ package com.xiaohe.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xiaohe.domain.entity.Article;
+import com.xiaohe.domain.vo.ArticleDetailVo;
 import com.xiaohe.domain.vo.ArticleListVo;
+import com.xiaohe.domain.vo.ArticleVo;
 import com.xiaohe.domain.vo.HotArticle;
 import com.xiaohe.mapper.ArticleMapper;
 import com.xiaohe.service.ArticleService;
@@ -34,6 +36,12 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     public List<ArticleListVo> getArticleList(Integer begin, Integer pageSize, Long categoryId) {
         List<ArticleListVo> articles = articleMapper.getArticle(begin, pageSize, categoryId);
         return articles;
+    }
+
+    @Override
+    public ArticleDetailVo article(Long id) {
+        ArticleDetailVo articleDetail = articleMapper.getArticleDetail(id);
+        return articleDetail;
     }
 }
 

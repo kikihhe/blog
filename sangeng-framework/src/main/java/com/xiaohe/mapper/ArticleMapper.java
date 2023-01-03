@@ -2,7 +2,9 @@ package com.xiaohe.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xiaohe.domain.entity.Article;
+import com.xiaohe.domain.vo.ArticleDetailVo;
 import com.xiaohe.domain.vo.ArticleListVo;
+import com.xiaohe.domain.vo.ArticleVo;
 import com.xiaohe.domain.vo.HotArticle;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -21,4 +23,7 @@ public interface ArticleMapper extends BaseMapper<Article> {
     public List<ArticleListVo> getArticle(@Param("begin") Integer begin,
                                           @Param("pageSize") Integer pageSize,
                                           @Param("categoryId") Long categoryId);
+
+
+    public ArticleDetailVo getArticleDetail(@Param("id") Long id);
 }

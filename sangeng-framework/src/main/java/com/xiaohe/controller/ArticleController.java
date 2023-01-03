@@ -1,6 +1,7 @@
 package com.xiaohe.controller;
 
 import com.xiaohe.domain.entity.Article;
+import com.xiaohe.domain.vo.ArticleDetailVo;
 import com.xiaohe.domain.vo.ArticleListVo;
 import com.xiaohe.domain.vo.ArticlePageVo;
 import com.xiaohe.domain.vo.HotArticle;
@@ -61,11 +62,22 @@ public class ArticleController {
                               @RequestParam("categoryId") Long categoryId) {
         // 使用Mysql的limit分页，计算起始下标
         Integer begin = (pageNum - 1) * pageSize;
+        // 文章列表类
         List<ArticleListVo> articles = articleService.getArticleList(begin, pageSize, categoryId);
+        // 封装的返回结果类，内有 文章列表集合、数据个数
         ArticlePageVo list = new ArticlePageVo(articles);
-
         return Result.success(list);
-
-
     }
+    @GetMapping("/{id}")
+    public Result article(@PathVariable("id") Long id) {
+        if (id < 0) {
+            return Result.error("请输入正确的参数");
+        }
+
+
+        ArticleDetailVo article = articleService.article(id);
+        return Result.success(article);
+    }
+
+
 }
