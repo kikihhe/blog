@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+
 /**
- * @author : 小何
- * @Description :
- * @date : 2023-01-03 19:46
+ * 友链
  */
 @Slf4j
 @RestController
@@ -24,6 +23,10 @@ public class LinkController {
     @Autowired
     private LinkService linkService;
 
+    /**
+     * 显示所有友链
+     *
+     */
     @GetMapping("/getAllLink")
     public Result getAllLinks() {
         List<LinkVo> links = linkService.getAllLinks();

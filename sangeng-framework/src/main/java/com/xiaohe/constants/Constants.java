@@ -15,4 +15,11 @@ public interface Constants {
          */
         public static final Integer Draft_Article = 1;
     }
+
+    interface User {
+        /**
+         * 博客前台登录的token
+         */
+        public static final String BLOG_LOGIN_TOKEN = "blog:login:token:";
+    }
 }
