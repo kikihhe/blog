@@ -21,5 +21,14 @@ public interface Constants {
          * 博客前台登录的token
          */
         public static final String BLOG_LOGIN_TOKEN = "blog:login:token:";
+
+        // 用户的状态，0表示正常，1表示异常
+        public static final String SIMPLE_STATUS = "0";
+        public static final String FORBIDDEN_STATUS = "1";
+
+        // 用户登录时从json提交的键名字
+        public static final String LOGIN_PARAMETER_USERNAME = "userName";
+        public static final String LOGIN_PARAMETER_PASSWORD = "password";
+
     }
 }
