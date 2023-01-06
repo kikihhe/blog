@@ -78,6 +78,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.addFilterAt(loginFilter(), UsernamePasswordAuthenticationFilter.class);
         http.addFilterBefore(tokenAuthenticationFilter(), LoginFilter.class);
+        http.logout().logoutSuccessHandler(new LogoutHandler(stringRedisTemplate));
 
         // security认证/授权失败处理器
         http.exceptionHandling()

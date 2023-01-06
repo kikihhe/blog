@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author : 小何
@@ -39,8 +40,14 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            if (Objects.isNull(map)) {
+                throw new RuntimeException("用户名/密码不能为空");
+            }
             username = (String) map.get(Constants.User.LOGIN_PARAMETER_USERNAME);
             password = (String) map.get(Constants.User.LOGIN_PARAMETER_PASSWORD);
+            if (Objects.isNull(username) || Objects.isNull(password)) {
+                throw new RuntimeException("用户名/密码不能为空");
+            }
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
             setDetails(request, authenticationToken);
             return this.getAuthenticationManager().authenticate(authenticationToken);
