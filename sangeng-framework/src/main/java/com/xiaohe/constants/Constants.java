@@ -31,4 +31,9 @@ public interface Constants {
         public static final String LOGIN_PARAMETER_PASSWORD = "password";
 
     }
+    interface CONTENT_TYPE {
+        public static final String APPLICATION_JSON = "application/json;charset=UTF-8";
+        public static final String MULTIPART = "multipart/form-data";
+
+    }
 }

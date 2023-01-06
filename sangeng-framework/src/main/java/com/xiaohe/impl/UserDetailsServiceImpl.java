@@ -4,10 +4,13 @@ import com.xiaohe.domain.entity.LoginUser;
 import com.xiaohe.domain.entity.User;
 import com.xiaohe.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.Objects;
 
 /**
  * @author : 小何
@@ -22,6 +25,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userMapper.getUserByUsername(s);
+        if (Objects.isNull(user)) {
+            throw new UsernameNotFoundException("用户名/密码错误");
+        }
         LoginUser loginUser = new LoginUser(user);
         return loginUser;
     }

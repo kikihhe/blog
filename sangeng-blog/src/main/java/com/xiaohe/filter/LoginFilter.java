@@ -2,6 +2,7 @@ package com.xiaohe.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xiaohe.constants.Constants;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,7 +20,8 @@ import java.util.Map;
  * @Description :
  * @date : 2023-01-06 16:49
  */
-public class LoginFiler extends UsernamePasswordAuthenticationFilter {
+
+public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         // 判断是不是post请求

@@ -1,6 +1,7 @@
 package com.xiaohe.security;
 
-import com.xiaohe.filter.LoginFiler;
+import com.xiaohe.filter.LoginFilter;
+import com.xiaohe.filter.TokenAuthenticationFilter;
 import com.xiaohe.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +12,10 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
@@ -34,38 +38,54 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public LoginFiler loginFiler() throws Exception {
-        LoginFiler loginFiler = new LoginFiler();
-        loginFiler.setAuthenticationManager(authenticationManagerBean());
+    public LoginFilter loginFilter() throws Exception {
+        LoginFilter loginFilter = new LoginFilter();
+        loginFilter.setAuthenticationManager(authenticationManagerBean());
 
-        loginFiler.setAuthenticationSuccessHandler(new LoginSuccessHandler(stringRedisTemplate));
-        loginFiler.setAuthenticationFailureHandler(new LoginFailureHandler());
-        return loginFiler;
+        loginFilter.setAuthenticationSuccessHandler(new LoginSuccessHandler(stringRedisTemplate));
+        loginFilter.setAuthenticationFailureHandler(new LoginFailureHandler());
+        return loginFilter;
     }
+    // 注入自定义过滤器实现对token的认证。
+    @Bean
+    public TokenAuthenticationFilter tokenAuthenticationFilter() {
+        return new TokenAuthenticationFilter(stringRedisTemplate);
+    }
+    // 使用自己的AuthenticationManager
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
+    // 装饰器模式，给自己的AuthenticationManager配置userDetailsServiceImpl和bCryptPasswordEncoder
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(bCryptPasswordEncoder());
+
     }
-
-
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
                 .antMatchers("/login").anonymous()
+                .antMatchers("/link/getAllLink").authenticated()
                 .anyRequest().permitAll();
 
-//        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.csrf().disable();
         http.formLogin().loginProcessingUrl("/login");
 
-        http.addFilterAt(loginFiler(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterAt(loginFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(tokenAuthenticationFilter(), LoginFilter.class);
+
+        // security认证/授权失败处理器
+        http.exceptionHandling()
+                .authenticationEntryPoint(authenticationEntryPoint)
+                .accessDeniedHandler(accessDeniedHandler);
     }
+    @Autowired
+    private AccessDeniedHandler accessDeniedHandler;
+    @Autowired
+    private AuthenticationEntryPoint authenticationEntryPoint;
 }

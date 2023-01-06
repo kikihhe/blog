@@ -28,6 +28,14 @@ public class Result<T> {
         r.code = 0;
         return r;
     }
+    public static <T> Result<T> error(String msg, int code) {
+        Result r = new Result();
+        r.msg = msg;
+        r.code = code;
+        return r;
+    }
+
+
 
     public Result<T> add(String key, Object value) {
         this.map.put(key, value);
