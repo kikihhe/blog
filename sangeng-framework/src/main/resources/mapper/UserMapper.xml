@@ -9,4 +9,10 @@
         from user
         where user_name = #{username} and status = 0 and del_flag = 0;
     </select>
+    <select id="getAllIdAndName" resultType="com.xiaohe.domain.entity.User">
+        select id, user_name as userName
+        from user;
+    </select>
+
+
 </mapper>

@@ -12,6 +12,7 @@ spring:
     password: "@HWF20020622456@"
     database: 0
 
+
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

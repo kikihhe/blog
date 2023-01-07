@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaohe.mapper.CommentMapper">
+
+
+    <select id="getAllRootComments" resultType="com.xiaohe.domain.vo.CommentVo">
+        select c.id, c.article_id, c.root_id, c.content, c.to_comment_user_id,
+               c.to_comment_id, c.create_by, c.create_time, u.user_name as username
+        from comment as c, user as u
+        where c.article_id = #{article_id} and c.root_id = -1
+        limit #{begin}, #{page_size};
+    </select>
+    <select id="getChildrenComments" resultType="com.xiaohe.domain.vo.CommentVo">
+        select c.id, c.article_id, c.root_id, c.content, c.to_comment_user_id,
+               c.to_comment_id, c.create_by, c.create_time, u.user_name as username
+        from comment as c, user as u
+        where c.article_id = #{article_id} and c.root_id != -1 and c.create_by = u.id;
+    </select>
+
+
+</mapper>

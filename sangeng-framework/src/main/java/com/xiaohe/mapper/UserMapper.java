@@ -5,6 +5,8 @@ import com.xiaohe.domain.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * @author : 小何
  * @Description :
@@ -13,5 +15,10 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
     public User getUserByUsername(@Param("username") String username);
+
+    public List<User> getAllIdAndName();
+
+
+
 
 }
