@@ -12,5 +12,8 @@ import java.util.List;
  * @date : 2023-01-07 14:53
  */
 public interface CommentService extends IService<Comment> {
+    // 展开评论列表
     public List<CommentVo> getComments(Long articleId, Integer begin, Integer pageSize);
+
+    public int addComment(Comment comment);
 }

@@ -51,6 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public TokenAuthenticationFilter tokenAuthenticationFilter() {
         return new TokenAuthenticationFilter(stringRedisTemplate);
     }
+
     // 使用自己的AuthenticationManager
     @Bean
     @Override
@@ -66,9 +67,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // 所有需要认证的接口
+        String[] authenticated = {
+                "/comment"
+        };
 
         http.authorizeRequests()
                 .antMatchers("/login").anonymous()
+                .antMatchers(authenticated).authenticated()
                 .anyRequest().permitAll();
 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -76,8 +82,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().loginProcessingUrl("/login");
 
         http.addFilterAt(loginFilter(), UsernamePasswordAuthenticationFilter.class);
-        http.addFilterBefore(tokenAuthenticationFilter(), LoginFilter.class);
+
+
+
         http.logout().logoutSuccessHandler(new LogoutHandler(stringRedisTemplate));
+
 
         // security认证/授权失败处理器
         http.exceptionHandling()

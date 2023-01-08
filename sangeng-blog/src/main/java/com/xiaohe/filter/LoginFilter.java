@@ -8,6 +8,7 @@ import org.springframework.security.authentication.AuthenticationServiceExceptio
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,6 +50,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
                 throw new RuntimeException("用户名/密码不能为空");
             }
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
+
             setDetails(request, authenticationToken);
             return this.getAuthenticationManager().authenticate(authenticationToken);
         }

@@ -37,8 +37,8 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        String token = request.getHeader("token");
-        // 如果token里面灭没有值，说明这个接口不需要登录，直接放行
+        String token = request.getHeader(Constants.User.AUTHENTICATION_NAME);
+        // 如果token里面灭没有值，说明这个接口不是这个filter需要拦截的，直接放行
         if (Objects.isNull(token)) {
             filterChain.doFilter(request, response);
             return;

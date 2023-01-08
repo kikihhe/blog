@@ -17,6 +17,7 @@ public interface Constants {
     }
 
     interface User {
+        public static final String AUTHENTICATION_NAME = "token";
         /**
          * 博客前台登录的token
          */
@@ -29,6 +30,10 @@ public interface Constants {
         // 用户登录时从json提交的键名字
         public static final String LOGIN_PARAMETER_USERNAME = "userName";
         public static final String LOGIN_PARAMETER_PASSWORD = "password";
+
+        // 未登录，匿名访问的用户的principle
+        public static final String ANONYMOUS_USER = "anonymousUser";
+
 
     }
     interface CONTENT_TYPE {

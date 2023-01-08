@@ -1,9 +1,12 @@
 package com.xiaohe.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.context.annotation.Bean;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -13,6 +16,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
@@ -29,4 +35,6 @@ public class WebConfig implements WebMvcConfigurer {
                 // 跨域允许时间
                 .maxAge(3600);
     }
+
+
 }

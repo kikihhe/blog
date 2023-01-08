@@ -12,6 +12,7 @@ import com.xiaohe.utils.Result;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import javax.servlet.ServletException;
@@ -43,6 +44,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         // 存入redis，以 token-json形式存储, token存活时间为30mins
         stringRedisTemplate.opsForValue().set(Constants.User.BLOG_LOGIN_TOKEN + token, json, 30, TimeUnit.MINUTES);
 
+        SecurityContextHolder.getContext().setAuthentication(authentication);
 
 
         UserInfoVo userInfoVo = BeanUtil.copyProperties(user, UserInfoVo.class);

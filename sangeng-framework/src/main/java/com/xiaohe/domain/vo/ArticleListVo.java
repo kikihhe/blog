@@ -23,7 +23,6 @@ public class ArticleListVo {
     //文章摘要
     private String summary;
     //所属分类名
-    @TableField(value = "name")
     private String categoryName;
     //缩略图
     private String thumbnail;

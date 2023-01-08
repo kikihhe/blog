@@ -15,8 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  * @author : 小何
@@ -51,15 +49,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
             userList.put(u.getId(), u.getUserName());
         }
 
-//        childrenComments = childrenComments.stream().map(comment -> {
-//            Long toId = comment.getToCommentUserId();
-//            String toUsername = userList.get(toId);
-//            comment.setToCommentUserName(toUsername);
-//            Long rootId = comment.getRootId();
-//            rootCommentsMap.get(rootId).getChildren().add(comment);
-//            return comment;
-//        }).collect(Collectors.toList());
-//
+
         for (CommentVo comment : childrenComments) {
             Long toId = comment.getToCommentUserId();
             String toUsername = userList.get(toId);
@@ -73,5 +63,17 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         }
 
         return rootComments;
+    }
+
+    @Override
+    public int addComment(Comment comment) {
+        // 如果这条评论是友链发的，type应该是1
+        Long id = comment.getCreateBy();
+        User user = userMapper.selectById(id);
+        if (!Objects.isNull(user)) {
+            comment.setType("1");
+        }
+        int insert = commentMapper.insert(comment);
+        return insert;
     }
 }
