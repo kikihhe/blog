@@ -22,6 +22,14 @@ public class Result<T> {
         return r;
     }
 
+    public static <T> Result<T> success(T object, String message) {
+        Result<T> r = new Result<T>();
+        r.data = object;
+        r.code = 200;
+        r.msg = message;
+        return r;
+    }
+
     public static <T> Result<T> error(String msg) {
         Result r = new Result();
         r.msg = msg;
@@ -34,8 +42,6 @@ public class Result<T> {
         r.code = code;
         return r;
     }
-
-
 
     public Result<T> add(String key, Object value) {
         this.map.put(key, value);
