@@ -69,7 +69,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // 所有需要认证的接口
         String[] authenticated = {
-                "/comment"
+                "/comment",
+                "/user/userInfo"
         };
 
         http.authorizeRequests()
@@ -79,6 +80,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.csrf().disable();
+
         http.formLogin().loginProcessingUrl("/login");
 
         http.addFilterAt(loginFilter(), UsernamePasswordAuthenticationFilter.class);
