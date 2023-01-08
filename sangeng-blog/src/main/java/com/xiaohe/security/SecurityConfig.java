@@ -85,6 +85,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().loginProcessingUrl("/login");
 
         http.addFilterAt(loginFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(new TokenAuthenticationFilter(stringRedisTemplate), LoginFilter.class);
 
 
 

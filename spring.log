@@ -1005,3 +1005,266 @@ Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'al
 2023-01-08 20:39:51.235  INFO 9872 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 4.324 seconds (JVM running for 5.443)
 2023-01-08 20:39:51.236  INFO 9872 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
 2023-01-08 20:39:51.237  INFO 9872 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-08 20:49:32.090  INFO 16840 --- [main] com.xiaohe.SanGengBlogApplication        : Starting SanGengBlogApplication using Java 1.8.0_202 on ABC with PID 16840 (D:\JAVA-projects\Bolg\sangeng-blog\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-01-08 20:49:32.092  INFO 16840 --- [main] com.xiaohe.SanGengBlogApplication        : No active profile set, falling back to default profiles: default
+2023-01-08 20:49:32.372  WARN 16840 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2023-01-08 20:49:32.659  INFO 16840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-08 20:49:32.661  INFO 16840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-08 20:49:32.686  INFO 16840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2023-01-08 20:49:33.130  INFO 16840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7777 (http)
+2023-01-08 20:49:33.138  INFO 16840 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-08 20:49:33.138  INFO 16840 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-01-08 20:49:33.263  INFO 16840 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-08 20:49:33.263  INFO 16840 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1138 ms
+2023-01-08 20:49:33.273  INFO 16840 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation should only be used on methods with parameters: private org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder com.xiaohe.security.SecurityConfig.bCryptPasswordEncoder()
+2023-01-08 20:49:36.262  INFO 16840 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@61d09475, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b2e931, org.springframework.security.web.header.HeaderWriterFilter@681311a7, org.springframework.security.web.authentication.logout.LogoutFilter@5a583720, com.xiaohe.filter.LoginFilter@5a4464c5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@30e2016a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7e89eba7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@407f2029, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d0fabc8, org.springframework.security.web.session.SessionManagementFilter@68c4db77, org.springframework.security.web.access.ExceptionTranslationFilter@4470106b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4e52d2f2]
+2023-01-08 20:49:36.311  INFO 16840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7777 (http) with context path ''
+2023-01-08 20:49:36.320  INFO 16840 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 4.563 seconds (JVM running for 6.097)
+2023-01-08 20:49:36.321  INFO 16840 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-01-08 20:49:36.322  INFO 16840 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-08 20:49:41.121  INFO 16840 --- [http-nio-7777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-08 20:49:41.121  INFO 16840 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-08 20:49:41.122  INFO 16840 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-08 20:49:41.237  INFO 16840 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-08 20:49:41.339  INFO 16840 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-08 21:01:04.296  INFO 5784 --- [main] com.xiaohe.SanGengBlogApplication        : Starting SanGengBlogApplication using Java 1.8.0_202 on ABC with PID 5784 (D:\JAVA-projects\Bolg\sangeng-blog\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-01-08 21:01:04.298  INFO 5784 --- [main] com.xiaohe.SanGengBlogApplication        : No active profile set, falling back to default profiles: default
+2023-01-08 21:01:04.576  WARN 5784 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2023-01-08 21:01:04.852  INFO 5784 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-08 21:01:04.854  INFO 5784 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-08 21:01:04.879  INFO 5784 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2023-01-08 21:01:05.306  INFO 5784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7777 (http)
+2023-01-08 21:01:05.313  INFO 5784 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-08 21:01:05.314  INFO 5784 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-01-08 21:01:05.434  INFO 5784 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-08 21:01:05.434  INFO 5784 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1102 ms
+2023-01-08 21:01:05.444  INFO 5784 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation should only be used on methods with parameters: private org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder com.xiaohe.security.SecurityConfig.bCryptPasswordEncoder()
+2023-01-08 21:01:08.243  INFO 5784 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2382b2f, org.springframework.security.web.context.SecurityContextPersistenceFilter@3593e074, org.springframework.security.web.header.HeaderWriterFilter@7c206b14, org.springframework.security.web.authentication.logout.LogoutFilter@4470106b, com.xiaohe.filter.TokenAuthenticationFilter@13374ca6, com.xiaohe.filter.LoginFilter@38087342, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@76b05c0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c1e40d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c3d9e28, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@71734463, org.springframework.security.web.session.SessionManagementFilter@2336cd91, org.springframework.security.web.access.ExceptionTranslationFilter@14239223, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1e95f584]
+2023-01-08 21:01:08.306  INFO 5784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7777 (http) with context path ''
+2023-01-08 21:01:08.316  INFO 5784 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 4.38 seconds (JVM running for 5.56)
+2023-01-08 21:01:08.317  INFO 5784 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-01-08 21:01:08.319  INFO 5784 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-08 21:01:14.265  INFO 5784 --- [http-nio-7777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-08 21:01:14.265  INFO 5784 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-08 21:01:14.266  INFO 5784 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-08 21:02:33.865  INFO 5784 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-08 21:02:34.054  INFO 5784 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-08 21:03:22.493  INFO 19592 --- [main] com.xiaohe.SanGengBlogApplication        : Starting SanGengBlogApplication using Java 1.8.0_202 on ABC with PID 19592 (D:\JAVA-projects\Bolg\sangeng-blog\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-01-08 21:03:22.495  INFO 19592 --- [main] com.xiaohe.SanGengBlogApplication        : No active profile set, falling back to default profiles: default
+2023-01-08 21:03:22.760  WARN 19592 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2023-01-08 21:03:23.025  INFO 19592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-08 21:03:23.026  INFO 19592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-08 21:03:23.049  INFO 19592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2023-01-08 21:03:23.456  INFO 19592 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7777 (http)
+2023-01-08 21:03:23.463  INFO 19592 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-08 21:03:23.463  INFO 19592 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-01-08 21:03:23.573  INFO 19592 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-08 21:03:23.573  INFO 19592 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1048 ms
+2023-01-08 21:03:23.581  INFO 19592 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation should only be used on methods with parameters: private org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder com.xiaohe.security.SecurityConfig.bCryptPasswordEncoder()
+2023-01-08 21:03:26.177  INFO 19592 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77a9ac36, org.springframework.security.web.context.SecurityContextPersistenceFilter@11d1735e, org.springframework.security.web.header.HeaderWriterFilter@55881f40, org.springframework.security.web.authentication.logout.LogoutFilter@2b8cf049, com.xiaohe.filter.TokenAuthenticationFilter@3c743d40, com.xiaohe.filter.LoginFilter@45287377, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@41f686af, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ca5cb99, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@69f69078, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5aac6f9f, org.springframework.security.web.session.SessionManagementFilter@248b2b61, org.springframework.security.web.access.ExceptionTranslationFilter@34eaf9c1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6da646b8]
+2023-01-08 21:03:26.221  INFO 19592 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7777 (http) with context path ''
+2023-01-08 21:03:26.228  INFO 19592 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 4.058 seconds (JVM running for 5.205)
+2023-01-08 21:03:26.229  INFO 19592 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-01-08 21:03:26.230  INFO 19592 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-08 21:05:48.684  INFO 19592 --- [http-nio-7777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-08 21:05:48.684  INFO 19592 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-08 21:05:48.685  INFO 19592 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-08 21:05:50.063  INFO 19592 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-08 21:05:50.246  INFO 19592 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-08 21:07:00.501  INFO 18080 --- [main] com.xiaohe.SanGengBlogApplication        : Starting SanGengBlogApplication using Java 1.8.0_202 on ABC with PID 18080 (D:\JAVA-projects\Bolg\sangeng-blog\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-01-08 21:07:00.503  INFO 18080 --- [main] com.xiaohe.SanGengBlogApplication        : No active profile set, falling back to default profiles: default
+2023-01-08 21:07:00.763  WARN 18080 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2023-01-08 21:07:01.028  INFO 18080 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-08 21:07:01.030  INFO 18080 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-08 21:07:01.053  INFO 18080 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2023-01-08 21:07:01.452  INFO 18080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7777 (http)
+2023-01-08 21:07:01.458  INFO 18080 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-08 21:07:01.459  INFO 18080 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-01-08 21:07:01.569  INFO 18080 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-08 21:07:01.569  INFO 18080 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1035 ms
+2023-01-08 21:07:01.578  INFO 18080 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation should only be used on methods with parameters: private org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder com.xiaohe.security.SecurityConfig.bCryptPasswordEncoder()
+2023-01-08 21:07:04.119  INFO 18080 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a67f8b4, org.springframework.security.web.context.SecurityContextPersistenceFilter@5f33e6d, org.springframework.security.web.header.HeaderWriterFilter@5dacf18d, org.springframework.security.web.authentication.logout.LogoutFilter@6bc25ac2, com.xiaohe.filter.TokenAuthenticationFilter@5f1f0ee6, com.xiaohe.filter.LoginFilter@274fdea6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@55c46ec1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6fa3def8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c5a2d5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@326706d, org.springframework.security.web.session.SessionManagementFilter@6f52a229, org.springframework.security.web.access.ExceptionTranslationFilter@4b50c21, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2382b2f]
+2023-01-08 21:07:04.164  INFO 18080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7777 (http) with context path ''
+2023-01-08 21:07:04.171  INFO 18080 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 3.992 seconds (JVM running for 5.109)
+2023-01-08 21:07:04.172  INFO 18080 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-01-08 21:07:04.173  INFO 18080 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-08 21:07:10.943  INFO 18080 --- [http-nio-7777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-08 21:07:10.944  INFO 18080 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-08 21:07:10.945  INFO 18080 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-08 21:07:12.319  INFO 18080 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-08 21:07:12.498  INFO 18080 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-08 21:07:12.578 ERROR 18080 --- [http-nio-7777-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'phone_number' in 'field list'
+### The error may exist in com/xiaohe/mapper/UserMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT id,user_name,nick_name,password,type,status,email,phone_number,sex,avatar,create_by,create_time,update_by,update_time,del_flag FROM user WHERE id=?  AND del_flag=0
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'phone_number' in 'field list'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'phone_number' in 'field list'] with root cause
+
+java.sql.SQLSyntaxErrorException: Unknown column 'phone_number' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.25.jar:8.0.25]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.25.jar:8.0.25]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.25.jar:8.0.25]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370) ~[mysql-connector-java-8.0.25.jar:8.0.25]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-4.0.3.jar:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.sun.proxy.$Proxy96.execute(Unknown Source) ~[na:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76) ~[mybatis-3.5.7.jar:3.5.7]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.sun.proxy.$Proxy77.selectOne(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:160) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:89) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:148) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.sun.proxy.$Proxy78.selectById(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.service.IService.getById(IService.java:201) ~[mybatis-plus-extension-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.extension.service.IService$$FastClassBySpringCGLIB$$f8525d18.invoke(<generated>) ~[mybatis-plus-extension-3.4.3.jar:3.4.3]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.7.jar:5.3.7]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.7.jar:5.3.7]
+	at com.xiaohe.impl.UserServiceImpl$$EnhancerBySpringCGLIB$$84eabc05.getById(<generated>) ~[classes/:na]
+	at com.xiaohe.controller.UserController.userInfo(UserController.java:35) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.7.jar:5.3.7]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.7.jar:5.3.7]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.7.jar:5.3.7]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.7.jar:5.3.7]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1063) ~[spring-webmvc-5.3.7.jar:5.3.7]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.7.jar:5.3.7]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.7.jar:5.3.7]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.7.jar:5.3.7]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.46.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.7.jar:5.3.7]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.46.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.46.jar:9.0.46]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at com.xiaohe.filter.TokenAuthenticationFilter.doFilterInternal(TokenAuthenticationFilter.java:65) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:218) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:121) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:218) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:218) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at com.xiaohe.filter.TokenAuthenticationFilter.doFilterInternal(TokenAuthenticationFilter.java:65) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.5.0.jar:5.5.0]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.7.jar:5.3.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.46.jar:9.0.46]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.46.jar:9.0.46]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_202]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_202]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.46.jar:9.0.46]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_202]
+
+2023-01-08 21:09:45.109  INFO 18492 --- [main] com.xiaohe.SanGengBlogApplication        : Starting SanGengBlogApplication using Java 1.8.0_202 on ABC with PID 18492 (D:\JAVA-projects\Bolg\sangeng-blog\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-01-08 21:09:45.112  INFO 18492 --- [main] com.xiaohe.SanGengBlogApplication        : No active profile set, falling back to default profiles: default
+2023-01-08 21:09:45.384  WARN 18492 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2023-01-08 21:09:45.667  INFO 18492 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-08 21:09:45.669  INFO 18492 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-08 21:09:45.693  INFO 18492 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2023-01-08 21:09:46.106  INFO 18492 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7777 (http)
+2023-01-08 21:09:46.113  INFO 18492 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-08 21:09:46.114  INFO 18492 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-01-08 21:09:46.228  INFO 18492 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-08 21:09:46.228  INFO 18492 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1084 ms
+2023-01-08 21:09:46.237  INFO 18492 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation should only be used on methods with parameters: private org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder com.xiaohe.security.SecurityConfig.bCryptPasswordEncoder()
+2023-01-08 21:09:48.866  INFO 18492 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@772cf46b, org.springframework.security.web.context.SecurityContextPersistenceFilter@61d09475, org.springframework.security.web.header.HeaderWriterFilter@30e2016a, org.springframework.security.web.authentication.logout.LogoutFilter@295d54d6, com.xiaohe.filter.TokenAuthenticationFilter@1b98355f, com.xiaohe.filter.LoginFilter@3f866f50, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6adcf059, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@12d44a2a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@59b98ad1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@949d347, org.springframework.security.web.session.SessionManagementFilter@23a78c77, org.springframework.security.web.access.ExceptionTranslationFilter@7ec508e6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@53e4a19e]
+2023-01-08 21:09:48.911  INFO 18492 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7777 (http) with context path ''
+2023-01-08 21:09:48.919  INFO 18492 --- [main] com.xiaohe.SanGengBlogApplication        : Started SanGengBlogApplication in 4.145 seconds (JVM running for 5.345)
+2023-01-08 21:09:48.920  INFO 18492 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-01-08 21:09:48.921  INFO 18492 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-01-08 21:10:00.039  INFO 18492 --- [http-nio-7777-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-08 21:10:00.039  INFO 18492 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-08 21:10:00.040  INFO 18492 --- [http-nio-7777-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-08 21:10:01.423  INFO 18492 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-08 21:10:01.615  INFO 18492 --- [http-nio-7777-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.

@@ -4,6 +4,7 @@ package com.xiaohe.filter;
 import cn.hutool.http.HttpStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xiaohe.constants.Constants;
+import com.xiaohe.domain.entity.LoginUser;
 import com.xiaohe.domain.entity.User;
 import com.xiaohe.utils.Result;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -58,7 +59,8 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
         // 放入SecurityContextHolder中，后续使用
         User user = objectMapper.readValue(json, User.class);
-        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null);
+        LoginUser loginUser = new LoginUser(user);
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(loginUser, null, null);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         filterChain.doFilter(request, response);
     }

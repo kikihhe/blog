@@ -3,6 +3,7 @@ package com.xiaohe.common;
 import com.aliyun.oss.OSSClient;
 
 import com.xiaohe.config.AliyunConfig;
+import com.xiaohe.constants.Constants;
 import com.xiaohe.utils.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class CommonController {
 
 
     @PostMapping("/upload")
-    public Result<String> upload(MultipartFile img) {
+    public Result upload(MultipartFile img) {
 
         // 获取原始文件名
         String fileName = img.getOriginalFilename(); // abc.jpg
@@ -39,6 +40,10 @@ public class CommonController {
         // 生成新的路径
         String s =  UUID.randomUUID() + suffix; // 15823941994-asdfewr2345wfed2312.jpg
 
+        // 最终的文件名为
+        String finalName = Constants.User.ALIYUN_OSS + s;
+
+
         // 上传至oss
         // 3. 上传至阿里OSS
         try {
@@ -47,6 +52,6 @@ public class CommonController {
             throw new RuntimeException("上传失败!!");
         }
 
-        return Result.success(s);
+        return Result.success(finalName);
     }
 }

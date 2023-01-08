@@ -34,6 +34,7 @@ public interface Constants {
         // 未登录，匿名访问的用户的principle
         public static final String ANONYMOUS_USER = "anonymousUser";
 
+        public static final String ALIYUN_OSS = "https://typorehwf.oss-cn-chengdu.aliyuncs.com/";
 
     }
     interface CONTENT_TYPE {
@@ -41,4 +42,6 @@ public interface Constants {
         public static final String MULTIPART = "multipart/form-data";
 
     }
+
+
 }
