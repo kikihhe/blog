@@ -70,7 +70,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // 所有需要认证的接口
         String[] authenticated = {
                 "/comment",
-                "/user/userInfo"
+                "/user/userInfo",
+                "/upload"
         };
 
         http.authorizeRequests()
