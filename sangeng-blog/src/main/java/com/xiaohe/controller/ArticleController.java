@@ -71,14 +71,7 @@ public class ArticleController {
         // 文章列表类
         List<ArticleListVo> articles = articleService.getArticleList(begin, pageSize, categoryId);
 
-        Map<Object, Object> map = stringRedisTemplate.opsForHash().entries(Constants.Article.BLOG_Article_VIEWCOUNT);
-        articles.forEach(item -> {
-            Long id = item.getId();
-            Long viewCount = (Long) map.get(id);
-            item.setViewCount(viewCount);
-        });
-
-
+        // 文章的浏览量直接从Mysql读
         // 封装的返回结果类，内有 文章列表集合、数据个数
         ArticlePageVo list = new ArticlePageVo(articles);
         return Result.success(list);
@@ -88,9 +81,9 @@ public class ArticleController {
         if (id < 0) {
             return Result.error("请输入正确的参数");
         }
+        // 文章的浏览量直接从MySQL读
         ArticleDetailVo article = articleService.article(id);
-        Long viewCount = (Long) stringRedisTemplate.opsForHash().get(Constants.Article.BLOG_Article_VIEWCOUNT, String.valueOf(id));
-        article.setViewCount(viewCount);
+
 
         return Result.success(article);
     }
