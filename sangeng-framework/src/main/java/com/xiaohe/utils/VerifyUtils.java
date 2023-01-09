@@ -20,7 +20,7 @@ public class VerifyUtils {
     /**
      * 密码正则。4~32位的字母、数字、下划线
      */
-    public static final String PASSWORD_REGEX = "^\\w{4,32}$";
+    public static final String PASSWORD_REGEX = "^\\w{6,12}$";
 
     /**
      * 验证码正则, 6位数字或字母
@@ -52,6 +52,16 @@ public class VerifyUtils {
      */
     public static boolean isEmailLegal(String email){
         return match(email, EMAIL_REGEX);
+    }
+
+
+    /**
+     * 判断密码是否符合格式: 6-12位数字 字母 下划线
+     * @param password
+     * @return
+     */
+    public static boolean isPasswordLegal(String password) {
+        return match(password, PASSWORD_REGEX);
     }
 
     /**

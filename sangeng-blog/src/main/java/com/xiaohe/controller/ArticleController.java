@@ -1,5 +1,6 @@
 package com.xiaohe.controller;
 
+import com.xiaohe.constants.Constants;
 import com.xiaohe.domain.entity.Article;
 import com.xiaohe.domain.vo.ArticleDetailVo;
 import com.xiaohe.domain.vo.ArticleListVo;
@@ -10,9 +11,12 @@ import com.xiaohe.utils.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author : 小何
@@ -26,6 +30,8 @@ import java.util.List;
 public class ArticleController {
     @Autowired
     private ArticleService articleService;
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
 
     @GetMapping("/getAllArticle")
     public Result getAllArticle() {
@@ -64,6 +70,15 @@ public class ArticleController {
         Integer begin = (pageNum - 1) * pageSize;
         // 文章列表类
         List<ArticleListVo> articles = articleService.getArticleList(begin, pageSize, categoryId);
+
+        Map<Object, Object> map = stringRedisTemplate.opsForHash().entries(Constants.Article.BLOG_Article_VIEWCOUNT);
+        articles.forEach(item -> {
+            Long id = item.getId();
+            Long viewCount = (Long) map.get(id);
+            item.setViewCount(viewCount);
+        });
+
+
         // 封装的返回结果类，内有 文章列表集合、数据个数
         ArticlePageVo list = new ArticlePageVo(articles);
         return Result.success(list);
@@ -73,10 +88,21 @@ public class ArticleController {
         if (id < 0) {
             return Result.error("请输入正确的参数");
         }
-
-
         ArticleDetailVo article = articleService.article(id);
+        Long viewCount = (Long) stringRedisTemplate.opsForHash().get(Constants.Article.BLOG_Article_VIEWCOUNT, String.valueOf(id));
+        article.setViewCount(viewCount);
+
         return Result.success(article);
+    }
+
+    @PutMapping("/updateViewCount/{id}")
+    public Result updateViewCount(@PathVariable("id") Long id) {
+        Long increment = stringRedisTemplate.opsForHash().increment(Constants.Article.BLOG_Article_VIEWCOUNT, String.valueOf(id), 1L);
+
+        if (increment != 1) {
+            log.info("{}时刻增加的阅读量成功,新的浏览量为:{}", LocalDateTime.now(), increment);
+        }
+        return Result.success(null, "操作成功");
     }
 
 

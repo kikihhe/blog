@@ -26,4 +26,8 @@ public interface ArticleMapper extends BaseMapper<Article> {
 
 
     public ArticleDetailVo getArticleDetail(@Param("id") Long id);
+
+    public void updateViewCount(@Param("id")Long id,
+                                @Param("viewCount") Long viewCount);
+
 }

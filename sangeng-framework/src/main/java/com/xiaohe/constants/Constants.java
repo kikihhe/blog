@@ -14,6 +14,8 @@ public interface Constants {
          * 草稿
          */
         public static final Integer Draft_Article = 1;
+
+        public static final String BLOG_Article_VIEWCOUNT = "blog:article:view_count";
     }
 
     interface User {

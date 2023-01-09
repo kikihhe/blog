@@ -24,4 +24,6 @@ public interface ArticleService extends IService<Article> {
 
     // 获取文章详情
     public ArticleDetailVo article(Long id);
+
+    public void updateViewCount(Long id, Long viewCount);
 }
