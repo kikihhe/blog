@@ -5,7 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xiaohe.constants.Constants;
 import com.xiaohe.domain.entity.LoginUser;
 import com.xiaohe.domain.entity.User;
-import com.xiaohe.domain.vo.LoginUserVo;
+import com.xiaohe.domain.vo.AdminLoginUserVo;
+import com.xiaohe.service.MenuService;
+import com.xiaohe.service.RoleService;
 import com.xiaohe.utils.JWTUtils;
 import com.xiaohe.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,31 +16,29 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author : 小何
- * @Description :
- * @date : 2023-01-10 13:30
- */
+
 @RestController
-@RequestMapping("/user")
 public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    @PostMapping("/login")
-    public Result login(@RequestBody LoginUserVo user) throws JsonProcessingException {
+    @Autowired
+    private RoleService roleService;
+
+    @Autowired
+    private MenuService menuService;
+
+    @PostMapping("/user/login")
+    public Result login(@RequestBody AdminLoginUserVo user) throws JsonProcessingException {
         UsernamePasswordAuthenticationToken authentication =
                 new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword());
 
@@ -64,5 +64,21 @@ public class UserController {
         Map<String, String> map = new HashMap<>();
         map.put(Constants.User.AUTHENTICATION_NAME, token);
         return Result.success(map, "登录成功");
+    }
+
+
+    @GetMapping("getInfo")
+    public Result getInfo() {
+        // 从SecurityContext中取出当前登录的用户的信息
+        User user = ((LoginUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser();
+
+        // 根据用户id查询他能访问的路径，封装为List<String>
+
+
+        // 根据用户id查询他的roleKey
+
+
+        return null;
+
     }
 }
