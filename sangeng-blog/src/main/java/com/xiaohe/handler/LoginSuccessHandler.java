@@ -1,9 +1,9 @@
-package com.xiaohe.security;
+package com.xiaohe.handler;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xiaohe.constants.Constants;
-import com.xiaohe.domain.entity.LoginUser;
+import com.xiaohe.domain.LoginUser;
 import com.xiaohe.domain.entity.User;
 import com.xiaohe.domain.vo.BlogUserLoginVo;
 import com.xiaohe.domain.vo.UserInfoVo;
@@ -41,8 +41,9 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         // token为键，json为值 存入redis
         String json = objectMapper.writeValueAsString(user);
         String token = JWTUtils.generateToken(objectMapper.readValue(json, Map.class));
+        
         // 存入redis，以 token-json形式存储, token存活时间为30mins
-        stringRedisTemplate.opsForValue().set(Constants.User.BLOG_LOGIN_TOKEN + token, json, 30, TimeUnit.MINUTES);
+        stringRedisTemplate.opsForValue().set(Constants.User.ADMIN_LOGIN_TOKEN + token, json, 30, TimeUnit.MINUTES);
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 

@@ -4,11 +4,11 @@ package com.xiaohe.filter;
 import cn.hutool.http.HttpStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xiaohe.constants.Constants;
-import com.xiaohe.domain.LoginUser;
+
+import com.xiaohe.domain.entity.LoginUser;
 import com.xiaohe.domain.entity.User;
 import com.xiaohe.utils.Result;
 import org.springframework.data.redis.core.StringRedisTemplate;
-
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -44,7 +44,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
             return;
         }
-        String json = stringRedisTemplate.opsForValue().get(Constants.User.BLOG_LOGIN_TOKEN + token);
+        String json = stringRedisTemplate.opsForValue().get(Constants.User.ADMIN_LOGIN_TOKEN + token);
         // 如果根据token拿不到json，有两种情况:
         // 1. token过期，用户不知道
         // 2. 用户有token ，这个token是自己造的。
@@ -55,7 +55,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
             return ;
         }
         // 如果由token能找到json，证明30mins之前登陆过。刷新该token的过期时间
-        stringRedisTemplate.expire(Constants.User.BLOG_LOGIN_TOKEN + token, 30, TimeUnit.MINUTES);
+        stringRedisTemplate.expire(Constants.User.ADMIN_LOGIN_TOKEN + token, 30, TimeUnit.MINUTES);
 
         // 放入SecurityContextHolder中，后续使用
         User user = objectMapper.readValue(json, User.class);

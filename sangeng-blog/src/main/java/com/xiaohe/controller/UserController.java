@@ -2,7 +2,7 @@ package com.xiaohe.controller;
 
 import cn.hutool.core.bean.BeanUtil;
 
-import com.xiaohe.domain.entity.LoginUser;
+import com.xiaohe.domain.LoginUser;
 import com.xiaohe.domain.entity.User;
 import com.xiaohe.domain.vo.RegisterUserVo;
 import com.xiaohe.domain.vo.UserInfoVo;
@@ -13,12 +13,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author : 小何

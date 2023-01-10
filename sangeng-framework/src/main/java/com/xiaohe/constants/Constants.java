@@ -24,6 +24,7 @@ public interface Constants {
          * 博客前台登录的token
          */
         public static final String BLOG_LOGIN_TOKEN = "blog:login:token:";
+        public static final String ADMIN_LOGIN_TOKEN = "admin:login:token:";
 
         // 用户的状态，0表示正常，1表示异常
         public static final String SIMPLE_STATUS = "0";

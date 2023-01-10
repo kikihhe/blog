@@ -1,6 +1,7 @@
-package com.xiaohe.domain.entity;
+package com.xiaohe.domain;
 
 import com.xiaohe.constants.Constants;
+import com.xiaohe.domain.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

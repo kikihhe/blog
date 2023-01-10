@@ -1,10 +1,9 @@
 package com.xiaohe.impl;
 
-import com.xiaohe.domain.entity.LoginUser;
+import com.xiaohe.domain.LoginUser;
 import com.xiaohe.domain.entity.User;
 import com.xiaohe.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -30,7 +29,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (Objects.isNull(user)) {
             throw new UsernameNotFoundException("用户名/密码错误");
         }
-        LoginUser loginUser = new LoginUser(user);
-        return loginUser;
+        return new LoginUser(user);
     }
 }

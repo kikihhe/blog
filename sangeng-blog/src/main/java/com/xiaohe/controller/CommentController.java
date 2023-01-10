@@ -1,7 +1,7 @@
 package com.xiaohe.controller;
 
 import com.xiaohe.domain.entity.Comment;
-import com.xiaohe.domain.entity.LoginUser;
+import com.xiaohe.domain.LoginUser;
 import com.xiaohe.domain.vo.CommentPageVo;
 import com.xiaohe.domain.vo.CommentVo;
 import com.xiaohe.service.CommentService;

@@ -1,10 +1,6 @@
 package com.xiaohe.security;
 
-import com.xiaohe.filter.LoginFilter;
 import com.xiaohe.filter.TokenAuthenticationFilter;
-import com.xiaohe.handler.LoginFailureHandler;
-import com.xiaohe.handler.LoginSuccessHandler;
-import com.xiaohe.handler.LogoutHandler;
 import com.xiaohe.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,42 +10,29 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-/**
- * @author : 小何
- * @Description :
- * @date : 2023-01-06 16:46
- */
+
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
     @Autowired
     private UserDetailsServiceImpl userDetailsServiceImpl;
-
-
+    @Autowired
+    private AccessDeniedHandler accessDeniedHandler;
+    @Autowired
+    private AuthenticationEntryPoint authenticationEntryPoint;
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public LoginFilter loginFilter() throws Exception {
-        LoginFilter loginFilter = new LoginFilter();
-        loginFilter.setAuthenticationManager(authenticationManagerBean());
-
-        loginFilter.setAuthenticationSuccessHandler(new LoginSuccessHandler(stringRedisTemplate));
-        loginFilter.setAuthenticationFailureHandler(new LoginFailureHandler());
-        return loginFilter;
-    }
     // 注入自定义过滤器实现对token的认证。
     @Bean
     public TokenAuthenticationFilter tokenAuthenticationFilter() {
@@ -72,29 +55,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // 所有需要认证的接口
-        String[] authenticated = {
-                "/comment",
-                "/user/userInfo",
-                "/upload"
-        };
 
         http.authorizeRequests()
-                .antMatchers("/login").anonymous()
-                .antMatchers(authenticated).authenticated()
-                .anyRequest().permitAll();
+                .antMatchers("/user/login").anonymous()
+                .anyRequest().authenticated();
 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        
+        // 关闭csrf
         http.csrf().disable();
 
-        http.formLogin().loginProcessingUrl("/login");
-
-        http.addFilterAt(loginFilter(), UsernamePasswordAuthenticationFilter.class);
-        http.addFilterBefore(new TokenAuthenticationFilter(stringRedisTemplate), LoginFilter.class);
-
-
-
-        http.logout().logoutSuccessHandler(new LogoutHandler(stringRedisTemplate));
+        http.addFilterBefore(new TokenAuthenticationFilter(stringRedisTemplate), UsernamePasswordAuthenticationFilter.class);
 
 
         // security认证/授权失败处理器
@@ -102,8 +73,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(authenticationEntryPoint)
                 .accessDeniedHandler(accessDeniedHandler);
     }
-    @Autowired
-    private AccessDeniedHandler accessDeniedHandler;
-    @Autowired
-    private AuthenticationEntryPoint authenticationEntryPoint;
+
 }

@@ -28,10 +28,12 @@ public class UpdateViewCountJob {
 
     @Autowired
     private ThreadPoolExecutor threadPoolExecutor;
+    private static int i = 0;
+    private static int j = 0;
 
-    @Scheduled(cron = "* 0/10 * * * ?")
+    @Scheduled(cron = "0 0/10 * * * ?")
     public void updateViewCountFromRedisToMysql() {
-        log.info("定时任务执行了");
+        log.info("定时任务执行了第{}次", j++);
 
         Map<Object, Object> map =  stringRedisTemplate.opsForHash().entries(Constants.Article.BLOG_Article_VIEWCOUNT);
 
@@ -41,6 +43,7 @@ public class UpdateViewCountJob {
             Long id = Long.valueOf((String) key);
             Long viewCount =Long.valueOf((String) value);
             threadPoolExecutor.execute(() -> {
+                log.info("线程池方法调用第{}次, 执行线程:{}", i++, Thread.currentThread().getName());
                 articleService.updateViewCount(id, viewCount);
             });
         });
