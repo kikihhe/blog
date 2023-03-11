@@ -61,7 +61,6 @@ public class UserController {
 
     @PostMapping("/register")
     public Result register(@RequestBody @Validated RegisterUserVo user) {
-        // TODO 用户注册功能还未实现
         if (!VerifyUtils.isPasswordLegal(user.getPassword())) {
             return Result.error("密码不符合格式!请输入6-12位数字、字母、下划线");
         }

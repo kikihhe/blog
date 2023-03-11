@@ -2,6 +2,7 @@ package com.xiaohe.filter;
 
 
 import cn.hutool.http.HttpStatus;
+import com.alibaba.excel.util.StringUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xiaohe.constants.Constants;
 
@@ -39,8 +40,8 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
         ObjectMapper objectMapper = new ObjectMapper();
 
         String token = request.getHeader(Constants.User.AUTHENTICATION_NAME);
-        // 如果token里面灭没有值，说明这个接口不是这个filter需要拦截的，直接放行
-        if (Objects.isNull(token)) {
+        // 如果token里面没有值，说明这个接口不是这个filter需要拦截的，直接放行
+        if (StringUtils.isEmpty(token)) {
             filterChain.doFilter(request, response);
             return;
         }

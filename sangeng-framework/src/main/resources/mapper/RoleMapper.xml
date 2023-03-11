@@ -5,4 +5,16 @@
 <mapper namespace="com.xiaohe.mapper.RoleMapper">
 
 
+    <select id="selectRoleByUserId" resultType="com.xiaohe.domain.entity.Role">
+        select role.*
+        from user_role user_role left join role as role
+                                               on role.id = user_role.role_id
+        where user_role.user_id = #{id};
+    </select>
+    <select id="selectRoleKeyByUserId" resultType="java.lang.String">
+        select role.role_key
+        from user_role user_role left join role as role
+                                               on role.id = user_role.role_id
+        where user_role.user_id = #{id};
+    </select>
 </mapper>

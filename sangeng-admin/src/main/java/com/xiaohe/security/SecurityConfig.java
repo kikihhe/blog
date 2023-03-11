@@ -16,7 +16,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-
+// RBAC权限模型 ：user表关联role表，通过userid获取角色role，通过role表中的id去menu表中查询用户可以操纵的菜单，菜单对应着用户权限
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired

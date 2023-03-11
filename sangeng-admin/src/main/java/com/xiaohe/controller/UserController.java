@@ -4,12 +4,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xiaohe.constants.Constants;
 import com.xiaohe.domain.entity.LoginUser;
+import com.xiaohe.domain.entity.Menu;
 import com.xiaohe.domain.entity.User;
 import com.xiaohe.domain.vo.AdminLoginUserVo;
+import com.xiaohe.domain.vo.AdminUserInfoVo;
+import com.xiaohe.domain.vo.RoutersVo;
+import com.xiaohe.domain.vo.UserInfoVo;
 import com.xiaohe.service.MenuService;
 import com.xiaohe.service.RoleService;
 import com.xiaohe.utils.JWTUtils;
 import com.xiaohe.utils.Result;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,6 +24,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -71,14 +77,26 @@ public class UserController {
     public Result getInfo() {
         // 从SecurityContext中取出当前登录的用户的信息
         User user = ((LoginUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser();
-
-        // 根据用户id查询他能访问的路径，封装为List<String>
-
+        Long id = user.getId();
+        // 根据用户id查询权限信息
+        List<String> permissions = menuService.getAccessPathByUserId(id);
 
         // 根据用户id查询他的roleKey
+        List<String> roleKey = roleService.getRoleKeyByUserId(id);
 
 
-        return null;
+        UserInfoVo userInfoVo = new UserInfoVo();
+        BeanUtils.copyProperties(user, userInfoVo);
+        return Result.success(new AdminUserInfoVo(permissions, roleKey, userInfoVo));
+
+    }
+
+    @GetMapping("getRouters")
+    public Result getRouters() {
+        User user = ((LoginUser) (SecurityContextHolder.getContext().getAuthentication().getPrincipal())).getUser();
+        Long id = user.getId();
+        List<Menu> routers = menuService.getRouterByUserId(id);
+        return Result.success(new RoutersVo(routers));
 
     }
 }
