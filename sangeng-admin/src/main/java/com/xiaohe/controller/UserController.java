@@ -23,6 +23,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,6 +73,21 @@ public class UserController {
         return Result.success(map, "登录成功");
     }
 
+    @PostMapping("/user/logout")
+    public Result logout(HttpServletRequest request) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(Objects.isNull(principal)) {
+            return Result.error("请先登录再退出登录");
+        }
+        // 获取token, 删除redis中的token
+        String token = request.getHeader(Constants.User.AUTHENTICATION_NAME);
+        Boolean delete = stringRedisTemplate.delete(Constants.User.ADMIN_LOGIN_TOKEN + token);
+        if (!delete) {
+            return Result.error("退出失败!");
+        }
+        return Result.success("成功退出");
+    }
+
 
     @GetMapping("getInfo")
     public Result getInfo() {
@@ -97,6 +113,5 @@ public class UserController {
         Long id = user.getId();
         List<Menu> routers = menuService.getRouterByUserId(id);
         return Result.success(new RoutersVo(routers));
-
     }
 }

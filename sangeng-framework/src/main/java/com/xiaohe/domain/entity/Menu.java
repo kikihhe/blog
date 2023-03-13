@@ -2,6 +2,7 @@ package com.xiaohe.domain.entity;
 
 import java.time.LocalDateTime;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -77,5 +78,5 @@ public class Menu  {
     private String delFlag;
 
     @TableField(exist = false)
-    private List<Menu> children;
+    private List<Menu> children = new ArrayList<>();
 }

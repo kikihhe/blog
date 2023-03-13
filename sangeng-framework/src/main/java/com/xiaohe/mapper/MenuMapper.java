@@ -22,10 +22,16 @@ public interface MenuMapper extends BaseMapper<Menu> {
     public List<String> selectPermissionByRoleId(@Param("id") Long id);
 
 
-    List<Menu> selectMenusByRoleId(@Param("roleId") Long roleId);
+    /**
+     * 管理员有所有routers
+     * @return
+     */
+    public List<Menu> selectAllRouters();
 
-    List<Integer> getMenuIdByRoleId(@Param("roleId") Long roleId);
-
-
-    List<Menu> getMenuById(@Param("list") List<Integer> list);
+    /**
+     * 根据id查找routers
+     * @param id
+     * @return
+     */
+    List<Menu> selectRoutersByUserId(@Param("id") Long id);
 }

@@ -30,6 +30,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class TokenAuthenticationFilter extends OncePerRequestFilter {
     private StringRedisTemplate stringRedisTemplate;
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     public TokenAuthenticationFilter(StringRedisTemplate stringRedisTemplate) {
         this.stringRedisTemplate = stringRedisTemplate;
@@ -37,7 +38,6 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
 
         String token = request.getHeader(Constants.User.AUTHENTICATION_NAME);
         // 如果token里面没有值，说明这个接口不是这个filter需要拦截的，直接放行

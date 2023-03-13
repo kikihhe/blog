@@ -54,31 +54,35 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
 
     @Override
     public List<Menu> getRouterByUserId(Long id) {
-        List<Role> roles = roleMapper.selectRoleByUserId(id);
-        Long roleId = roles.get(0).getId();
-        // 根据roleid查到menuid
-        List<Integer> list =  menuMapper.getMenuIdByRoleId(roleId);
-        // 根据menuid查到menu
-        List<Menu> menus =  menuMapper.getMenuById(list);
+        List<Menu> list = null;
+        if (id == 1) {
+           list = menuMapper.selectAllRouters();
+        } else {
+            list = menuMapper.selectRoutersByUserId(id);
+        }
+        return buildMenuTree(list);
 
-////
-//        List<Menu> menus = menuMapper.selectMenusByRoleId(roleId);
-//        List<Menu> OneMenus = new ArrayList<>();
-//        menus.forEach(menu -> {
-//            if(menu.getParentId() == 0)
-//        });
-        // 将这些menus变化为树形结构
-//        List<Menu> menus = menuMapper.selectMenusByUserId(id);
-        Map<Long, Menu> map = new HashMap<>();
-        menus.forEach(menu -> {
-            map.put(menu.getId(), menu);
-        });
-        menus.forEach(menu -> {
-            // 证明有父路由
-            if (Objects.isNull(map.get(menu.getParentId()))) {
-                map.get(menu.getParentId()).getChildren().add(menu);
+    }
+
+    /**
+     * 根据menu列表返回树形menu
+     * @param list
+     * @return
+     */
+    private List<Menu> buildMenuTree(List<Menu> list) {
+        List<Menu> menus = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getParentId().equals(0L)) {
+                menus.add(list.get(i));
             }
-        });
+        }
+        for (int i = 0; i < menus.size(); i++) {
+            for (int j = 0; j < list.size(); j++) {
+                if (list.get(j).getParentId().equals(menus.get(i).getId())) {
+                    menus.get(i).getChildren().add(list.get(j));
+                }
+            }
+        }
         return menus;
     }
 
