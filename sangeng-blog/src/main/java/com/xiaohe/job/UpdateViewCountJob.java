@@ -36,9 +36,6 @@ public class UpdateViewCountJob {
         log.info("定时任务执行了第{}次", j++);
 
         Map<Object, Object> map =  stringRedisTemplate.opsForHash().entries(Constants.Article.BLOG_Article_VIEWCOUNT);
-
-
-
         map.forEach((key, value) -> {
             Long id = Long.valueOf((String) key);
             Long viewCount =Long.valueOf((String) value);
@@ -47,8 +44,5 @@ public class UpdateViewCountJob {
                 articleService.updateViewCount(id, viewCount);
             });
         });
-
-
-
     }
 }
