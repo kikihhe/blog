@@ -20,6 +20,7 @@ public class BlogAdminApplication {
     public ThreadPoolExecutor threadPoolExecutor() {
         return new ThreadPoolExecutor(2, 5, 10, TimeUnit.SECONDS,
                 new ArrayBlockingQueue<>(5), new ThreadPoolExecutor.CallerRunsPolicy());
+        
     }
 
 } 
