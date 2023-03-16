@@ -2,10 +2,8 @@ package com.xiaohe.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xiaohe.domain.entity.Article;
-import com.xiaohe.domain.vo.ArticleDetailVo;
-import com.xiaohe.domain.vo.ArticleListVo;
-import com.xiaohe.domain.vo.ArticleVo;
-import com.xiaohe.domain.vo.HotArticle;
+import com.xiaohe.domain.entity.PageVo;
+import com.xiaohe.domain.vo.*;
 
 import java.util.List;
 
@@ -26,4 +24,13 @@ public interface ArticleService extends IService<Article> {
     public ArticleDetailVo article(Long id);
 
     public void updateViewCount(Long id, Long viewCount);
+
+    // 发布文章
+    public boolean addArticle(AddArticleVo addArticleVo) throws InterruptedException;
+
+    public PageVo list(Integer begin, Integer pageSize, String title, String summary);
+
+    public AddArticleVo getArticle(Long id);
+
+    public boolean updateArticle(AddArticleVo addArticleVo) throws InterruptedException;
 }

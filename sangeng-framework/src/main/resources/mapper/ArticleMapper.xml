@@ -41,6 +41,19 @@
         where a.id = #{id} and  a.status = 0 and a.del_flag = 0
                 and a.category_id = c.id;
     </select>
+    <select id="list" resultType="com.xiaohe.domain.entity.Article">
+        select *
+        from article
+        where
+              del_flag = 0
+              <if test="title != null and title !=''">
+                  and title like concat('%', #{title}, '%')
+              </if>
+              <if test="summary != null and summary != ''">
+                  and summary like concat('%', #{summary}, '%')
+              </if>
+        limit #{begin}, #{pageSize};
+    </select>
 
 
 </mapper>

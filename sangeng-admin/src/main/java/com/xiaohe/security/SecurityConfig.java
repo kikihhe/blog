@@ -2,12 +2,14 @@ package com.xiaohe.security;
 
 import com.xiaohe.filter.TokenAuthenticationFilter;
 import com.xiaohe.impl.UserDetailsServiceImpl;
+import com.xiaohe.mapper.MenuMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -18,6 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 // RBAC权限模型 ：user表关联role表，通过userid获取角色role，通过role表中的id去menu表中查询用户可以操纵的菜单，菜单对应着用户权限
 @Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
@@ -27,6 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private AccessDeniedHandler accessDeniedHandler;
     @Autowired
     private AuthenticationEntryPoint authenticationEntryPoint;
+    @Autowired
+    private MenuMapper menuMapper;
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -36,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // 注入自定义过滤器实现对token的认证。
     @Bean
     public TokenAuthenticationFilter tokenAuthenticationFilter() {
-        return new TokenAuthenticationFilter(stringRedisTemplate);
+        return new TokenAuthenticationFilter(stringRedisTemplate, menuMapper);
     }
 
     // 使用自己的AuthenticationManager
@@ -65,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // 关闭csrf
         http.csrf().disable();
 
-        http.addFilterBefore(new TokenAuthenticationFilter(stringRedisTemplate), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(new TokenAuthenticationFilter(stringRedisTemplate, menuMapper), UsernamePasswordAuthenticationFilter.class);
 
 
         // security认证/授权失败处理器

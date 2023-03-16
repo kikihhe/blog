@@ -34,4 +34,13 @@ public interface MenuMapper extends BaseMapper<Menu> {
      * @return
      */
     List<Menu> selectRoutersByUserId(@Param("id") Long id);
+
+
+    /**
+     * 根据角色id查询权限
+     * @param userId
+     * @return
+     */
+    List<String> selectPermsByUserId(Long userId);
+
 }

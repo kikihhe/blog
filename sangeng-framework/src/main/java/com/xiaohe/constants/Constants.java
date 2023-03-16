@@ -19,6 +19,15 @@ public interface Constants {
     }
 
     interface User {
+        /**
+         * 后台用户的type类型
+         */
+        public static final String SYSTEM_ADMIN_TYPE = "1";
+        /**
+         * 博客门户的用户类型
+         */
+        public static final String SYSTEM_BOLG_TYPE = "1";
+
         public static final String AUTHENTICATION_NAME = "token";
         /**
          * 博客前台登录的token

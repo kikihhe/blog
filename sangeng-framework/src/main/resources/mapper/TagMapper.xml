@@ -6,8 +6,22 @@
     <resultMap type="java.lang.Integer" id="count">
         <result column="total"/>
     </resultMap>
+    <insert id="addArticleTag">
+        insert into article_tag values (#{article}, #{tagId});
+    </insert>
+    <delete id="deleteTagsByArticleId">
+        delete from article_tag
+        where article_id = #{id};
+    </delete>
 
-<!--    <select id="getTagList" resultType="com.xiaohe.domain.entity.PageVo">-->
+    <select id="selectTagListByArticleId" resultType="java.lang.Long">
+        select article_tag.tag_id
+        from article_tag
+        where article_id = #{id};
+    </select>
+
+
+    <!--    <select id="getTagList" resultType="com.xiaohe.domain.entity.PageVo">-->
 <!--        select SQL_CALC_FOUND_ROWS tag.*-->
 <!--        from tag-->
 <!--        <where>-->

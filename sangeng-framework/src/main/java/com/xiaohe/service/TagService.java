@@ -14,5 +14,7 @@ import java.util.List;
 public interface TagService extends IService<Tag> {
     public PageVo getTagList(Integer begin, Integer pageSize, String name, String remark);
 
-    public Boolean addTag(String name, String remark) ;
+    public Boolean addTag(String name, String remark);
+
+
 }

@@ -6,9 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 
 @Data
@@ -16,6 +19,12 @@ import java.util.Collection;
 @AllArgsConstructor
 public class LoginUser implements UserDetails {
     private User user;
+    private List<String> permission;
+
+    public LoginUser(User user) {
+        this.user = user;
+    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

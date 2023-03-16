@@ -29,7 +29,23 @@
         WHERE ur.`user_id` = #{id} AND m.`menu_type` IN ('C','M') AND m.`status` = 0 AND m.`del_flag` = 0
         ORDER BY m.parent_id,m.order_num
     </select>
+<!--    根据角色id查询权限-->
+    <select id="selectPermsByUserId" resultType="java.lang.String">
+        SELECT
+            m.perms
+        FROM
+            `user_role` ur
+                LEFT JOIN `role_menu` rm ON ur.`role_id` = rm.`role_id`
+                LEFT JOIN `menu` m ON m.`id` = rm.`menu_id`
+        WHERE
+              <if test="userId != 1">
+                  ur.`user_id` = #{userId} AND
+              </if>
 
+            m.`menu_type` IN ('C','F') AND
+            m.`status` = 0 AND
+            m.`del_flag` = 0
+    </select>
 
 
 </mapper>

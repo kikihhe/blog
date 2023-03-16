@@ -20,4 +20,11 @@ public interface TagMapper extends BaseMapper<Tag> {
 //                             @Param("pageSize") Integer pageSize,
 //                             @Param("name") String name,
 //                             @Param("remark") String remark);
+
+    public int addArticleTag(@Param("article") Long articleId, @Param("tagId") Long tagId);
+
+    public List<Long> selectTagListByArticleId(@Param("id") Long id);
+
+    Integer deleteTagsByArticleId(@Param("id") Long id);
+
 }

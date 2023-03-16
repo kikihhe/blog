@@ -30,4 +30,9 @@ public interface ArticleMapper extends BaseMapper<Article> {
     public void updateViewCount(@Param("id")Long id,
                                 @Param("viewCount") Long viewCount);
 
+    public List<Article> list(@Param("begin") Integer begin,
+                              @Param("pageSize") Integer pageSize,
+                              @Param("title") String title,
+                              @Param("summary") String summary);
+
 }

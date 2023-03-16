@@ -8,6 +8,7 @@ import com.xiaohe.constants.Constants;
 
 import com.xiaohe.domain.entity.LoginUser;
 import com.xiaohe.domain.entity.User;
+import com.xiaohe.mapper.MenuMapper;
 import com.xiaohe.utils.Result;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
@@ -31,8 +33,10 @@ import java.util.concurrent.TimeUnit;
 public class TokenAuthenticationFilter extends OncePerRequestFilter {
     private StringRedisTemplate stringRedisTemplate;
     private final ObjectMapper objectMapper = new ObjectMapper();
+    private MenuMapper menuMapper;
 
-    public TokenAuthenticationFilter(StringRedisTemplate stringRedisTemplate) {
+    public TokenAuthenticationFilter(StringRedisTemplate stringRedisTemplate, MenuMapper menuMapper) {
+        this.menuMapper = menuMapper;
         this.stringRedisTemplate = stringRedisTemplate;
     }
 
@@ -60,7 +64,8 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
         // 放入SecurityContextHolder中，后续使用
         User user = objectMapper.readValue(json, User.class);
-        LoginUser loginUser = new LoginUser(user);
+        List<String> list = menuMapper.selectPermsByUserId(user.getId());
+        LoginUser loginUser = new LoginUser(user, list);
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(loginUser, null, null);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         filterChain.doFilter(request, response);
