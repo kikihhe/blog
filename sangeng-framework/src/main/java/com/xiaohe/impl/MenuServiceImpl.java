@@ -13,10 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static java.awt.SystemColor.menu;
 
 /**
  * @author : 小何
@@ -62,6 +65,25 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         }
         return buildMenuTree(list);
 
+    }
+
+    /**
+     * 返回所有菜单, 根据父id和orderNum排序
+     *
+     * @param status
+     * @param menuName
+     * @return
+     */
+    @Override
+    public List<Menu> getMenus(Integer status, String menuName) {
+        LambdaQueryWrapper<Menu> queryWrapper = new LambdaQueryWrapper<>();
+        //menuName模糊查询
+        queryWrapper.like(StringUtils.hasText(menuName),Menu::getMenuName,menuName);
+        queryWrapper.eq(Menu::getStatus,status);
+        //排序 parent_id和order_num
+        queryWrapper.orderByAsc(Menu::getParentId,Menu::getOrderNum);
+        List<Menu> menus = list(queryWrapper);;
+        return menus;
     }
 
     /**

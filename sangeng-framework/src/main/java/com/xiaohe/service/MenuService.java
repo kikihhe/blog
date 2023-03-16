@@ -25,4 +25,6 @@ public interface MenuService extends IService<Menu> {
      */
     public List<Menu> getRouterByUserId(Long id);
 
+    public List<Menu> getMenus(Integer status, String menuName);
+
 }
