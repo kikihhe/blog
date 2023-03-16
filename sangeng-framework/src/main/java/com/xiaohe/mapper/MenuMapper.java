@@ -43,4 +43,5 @@ public interface MenuMapper extends BaseMapper<Menu> {
      */
     List<String> selectPermsByUserId(Long userId);
 
+    Menu select(@Param("menuName") String menuName, @Param("path") String path);
 }

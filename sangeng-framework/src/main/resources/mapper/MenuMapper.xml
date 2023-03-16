@@ -46,7 +46,13 @@
             m.`status` = 0 AND
             m.`del_flag` = 0
     </select>
-
+    <select id="select" resultType="com.xiaohe.domain.entity.Menu">
+        select *
+        from menu
+        <where>
+            menu_name = #{menuName} or path = #{path};
+        </where>
+    </select>
 
 
 </mapper>

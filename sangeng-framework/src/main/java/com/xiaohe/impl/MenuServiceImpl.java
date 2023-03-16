@@ -79,11 +79,31 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         LambdaQueryWrapper<Menu> queryWrapper = new LambdaQueryWrapper<>();
         //menuName模糊查询
         queryWrapper.like(StringUtils.hasText(menuName),Menu::getMenuName,menuName);
-        queryWrapper.eq(Menu::getStatus,status);
+        queryWrapper.eq(!Objects.isNull(status), Menu::getStatus,status);
         //排序 parent_id和order_num
         queryWrapper.orderByAsc(Menu::getParentId,Menu::getOrderNum);
         List<Menu> menus = list(queryWrapper);;
         return menus;
+    }
+
+    @Override
+    public boolean addMenu(Menu menu) {
+        // 新增菜单功能
+        // 上级目录与本级目录的名称不能相同
+        Menu parentMenu = menuMapper.selectById(menu.getParentId());
+        if (parentMenu.getMenuName().equals(menu.getMenuName())) {
+            throw new RuntimeException("菜单名称不能与父级菜单的名称相同");
+        }
+        // 菜单名称不能重复
+        // 菜单路由地址不能重复
+        // 菜单组件路径不能重复, 菜单权限字符可以重复，因为一个权限可以操作多个菜单
+
+        Menu a = menuMapper.select(menu.getMenuName(), menu.getPath());
+        if (!Objects.isNull(a)) {
+            throw new RuntimeException("菜单名称或菜单路由地址重复!");
+        }
+        int insert = menuMapper.insert(menu);
+        return insert > 0;
     }
 
     /**
