@@ -3,13 +3,12 @@ package com.xiaohe.domain.entity;
 import java.util.Date;
 
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.baomidou.mybatisplus.annotation.TableName;
+
 /**
  * 用户表(User)表实体类
  *
@@ -20,7 +19,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @NoArgsConstructor
 @TableName("user")
 public class User  {
-    //主键@TableId
+    //主键
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     //用户名
@@ -36,6 +36,7 @@ public class User  {
     //邮箱
     private String email;
     //手机号
+    @TableField("phonenumber")
     private String phoneNumber;
     //用户性别（0男，1女，2未知）
     private String sex;

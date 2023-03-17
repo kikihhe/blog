@@ -19,6 +19,5 @@ public interface UserMapper extends BaseMapper<User> {
     public List<User> getAllIdAndName();
 
 
-
-
+    public Integer insertUserRole(@Param("userId") Long id, @Param("roleIds") List<Long> roleIds);
 }

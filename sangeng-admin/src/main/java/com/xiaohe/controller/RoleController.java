@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @author : 小何
  * @Description :
@@ -74,5 +76,15 @@ public class RoleController {
             return Result.error("删除失败");
         }
     }
+
+    @GetMapping("/listAllRole")
+    public Result getAllRole() {
+        LambdaQueryWrapper<Role> lambda = new LambdaQueryWrapper<>();
+        lambda.eq(Role::getStatus,"0");
+        List<Role> list = roleService.list(lambda);
+        return Result.success(list);
+    }
+
+
 
 }

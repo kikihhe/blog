@@ -5,13 +5,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xiaohe.constants.Constants;
 import com.xiaohe.domain.entity.LoginUser;
 import com.xiaohe.domain.entity.Menu;
+import com.xiaohe.domain.entity.PageVo;
 import com.xiaohe.domain.entity.User;
-import com.xiaohe.domain.vo.AdminLoginUserVo;
-import com.xiaohe.domain.vo.AdminUserInfoVo;
-import com.xiaohe.domain.vo.RoutersVo;
-import com.xiaohe.domain.vo.UserInfoVo;
+import com.xiaohe.domain.vo.*;
 import com.xiaohe.service.MenuService;
 import com.xiaohe.service.RoleService;
+import com.xiaohe.service.UserService;
 import com.xiaohe.utils.JWTUtils;
 import com.xiaohe.utils.Result;
 import org.springframework.beans.BeanUtils;
@@ -113,5 +112,26 @@ public class UserController {
         Long id = user.getId();
         List<Menu> routers = menuService.getRouterByUserId(id);
         return Result.success(new RoutersVo(routers));
+    }
+
+
+    @Autowired
+    private UserService userService;
+
+
+    @GetMapping("/system/user/list")
+    public Result getAllUser(Integer pageNum, Integer pageSize, String userName, String phonenumber) {
+        PageVo pageVo = userService.getAllUser(pageNum, pageSize, userName, phonenumber);
+        return Result.success(pageVo);
+    }
+
+    @PostMapping("/system/user")
+    public Result addUser(@RequestBody AddUserVo addUserVo) {
+        boolean b = userService.addUser(addUserVo);
+        if (b) {
+            return Result.success("新增成功");
+        } else {
+            return Result.error("新增过程出现错误");
+        }
     }
 }
