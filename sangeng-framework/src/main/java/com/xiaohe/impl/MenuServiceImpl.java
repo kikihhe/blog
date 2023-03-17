@@ -8,9 +8,12 @@ import com.xiaohe.domain.entity.Role;
 import com.xiaohe.mapper.MenuMapper;
 import com.xiaohe.mapper.RoleMapper;
 import com.xiaohe.service.MenuService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -28,6 +31,8 @@ import static java.awt.SystemColor.menu;
  */
 @Service
 @Transactional
+@Slf4j
+@EnableAspectJAutoProxy(exposeProxy = true, proxyTargetClass = true)
 public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements MenuService {
     @Autowired
     private RoleMapper roleMapper;
@@ -38,6 +43,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
 
 
     @Override
+    @Transactional
     public List<String> getAccessPathByUserId(Long id) {
         // 如果是管理员，返回所有权限
         if (id == 1) {
@@ -56,6 +62,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     }
 
     @Override
+    @Transactional
     public List<Menu> getRouterByUserId(Long id) {
         List<Menu> list = null;
         if (id == 1) {
@@ -87,6 +94,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     }
 
     @Override
+    @Transactional
     public boolean addMenu(Menu menu) {
         // 新增菜单功能
         // 上级目录与本级目录的名称不能相同
@@ -104,6 +112,20 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         }
         int insert = menuMapper.insert(menu);
         return insert > 0;
+    }
+
+    @Override
+    @Transactional
+    public boolean updateMenu(Menu menu) {
+        // 将原先的menu删除
+        boolean b = removeById(menu.getId());
+        if (!b) {
+            log.error("更新菜单时删除菜单失败,id: {}", menu.getId());
+            throw new RuntimeException("更新失败");
+        } else {
+            // 调用新增菜单
+            return ((MenuService) AopContext.currentProxy()).addMenu(menu);
+        }
     }
 
     /**
@@ -127,5 +149,4 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         }
         return menus;
     }
-
 }

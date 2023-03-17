@@ -69,6 +69,8 @@ public class MenuController {
      */
     @PutMapping
     public Result updateMenu(@RequestBody Menu menu) {
+        // 将原先的菜单删除
+
 
         return null;
     }
