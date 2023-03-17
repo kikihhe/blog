@@ -134,4 +134,21 @@ public class UserController {
             return Result.error("新增过程出现错误");
         }
     }
+
+    @DeleteMapping("/system/user/{id}")
+    public Result deleteUser(@PathVariable("id") List<Long> ids) {
+        boolean b = userService.removeByIds(ids);
+        if (b) {
+            return Result.error("删除成功");
+        } else {
+            return Result.success("删除失败");
+        }
+    }
+
+    @GetMapping("/{id}")
+    public Result getUser(@PathVariable("id") Long id) {
+        // TODO 修改用户之前的回显数据，
+        return null;
+
+    }
 }

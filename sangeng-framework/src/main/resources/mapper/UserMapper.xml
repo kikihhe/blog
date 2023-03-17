@@ -11,6 +11,7 @@
         </foreach>
     </insert>
 
+
     <select id="getUserByUsername" resultType="com.xiaohe.domain.entity.User">
         select *
         from user
