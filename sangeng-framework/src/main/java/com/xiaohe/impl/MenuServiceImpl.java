@@ -128,6 +128,23 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         }
     }
 
+    @Override
+    public boolean deleteMenu(Long id) {
+        // 查看有没有子目录，有子目录不让删
+        LambdaQueryWrapper<Menu> lambda = new LambdaQueryWrapper<>();
+        lambda.eq(Menu::getParentId, id);
+        List<Menu> menus = menuMapper.selectList(lambda);
+        if (menus.size() > 0) {
+            return false;
+        }
+        boolean b = removeById(id);
+        if (!b) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     /**
      * 根据menu列表返回树形menu
      * @param list

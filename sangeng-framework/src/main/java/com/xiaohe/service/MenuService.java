@@ -30,4 +30,6 @@ public interface MenuService extends IService<Menu> {
     public boolean addMenu(Menu menu);
 
     public boolean updateMenu(Menu menu);
+
+    public boolean deleteMenu(Long id);
 }

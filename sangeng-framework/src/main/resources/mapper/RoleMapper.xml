@@ -3,6 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xiaohe.mapper.RoleMapper">
+    <update id="updateStatus">
+        update role
+            set status = #{status}
+        where id = #{roleId};
+    </update>
 
 
     <select id="selectRoleByUserId" resultType="com.xiaohe.domain.entity.Role">

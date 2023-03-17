@@ -17,4 +17,6 @@ public interface RoleMapper extends BaseMapper<Role> {
     public List<Role> selectRoleByUserId(@Param("id") Long id);
 
     List<String> selectRoleKeyByUserId(@Param("id") Long id);
+
+    int updateStatus(@Param("roleId") Long roleId,@Param("status") String status);
 }

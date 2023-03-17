@@ -76,4 +76,15 @@ public class MenuController {
             return Result.error("更改失败");
         }
     }
+
+    @DeleteMapping("/{id}")
+    public Result deleteMenu(@PathVariable("id") Long id) {
+        boolean isDelete = menuService.deleteMenu(id);
+        if (!isDelete) {
+            return Result.error("删除失败，请检查该目录是否有子目录");
+        } else {
+            return Result.success("删除成功!!!!");
+
+        }
+    }
 }
