@@ -69,9 +69,11 @@ public class MenuController {
      */
     @PutMapping
     public Result updateMenu(@RequestBody Menu menu) {
-        // 将原先的菜单删除
-
-
-        return null;
+        boolean b = menuService.updateMenu(menu);
+        if (b) {
+            return Result.success("更改成功");
+        } else {
+            return Result.error("更改失败");
+        }
     }
 }
