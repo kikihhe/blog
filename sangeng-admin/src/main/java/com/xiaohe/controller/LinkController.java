@@ -1,12 +1,16 @@
 package com.xiaohe.controller;
 
+import com.xiaohe.domain.entity.Link;
 import com.xiaohe.domain.entity.PageVo;
+import com.xiaohe.domain.vo.LinkVo;
 import com.xiaohe.service.LinkService;
 import com.xiaohe.utils.IdUtil;
 import com.xiaohe.utils.Result;
 import io.jsonwebtoken.lang.Strings;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -44,5 +48,18 @@ public class LinkController {
             log.error("删除友链时失败!, 需要删除的id为: {}",id);
             return Result.error("删除失败");
         }
+    }
+
+    @PostMapping
+    public Result addLink(@RequestBody @Validated LinkVo linkVo) {
+        Link link = new Link();
+        BeanUtils.copyProperties(linkVo, link);
+        boolean save = linkService.save(link);
+        if (save) {
+            return Result.success("添加成功");
+        } else {
+            return Result.error("添加失败");
+        }
+
     }
 }
