@@ -5,13 +5,16 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xiaohe.domain.entity.Category;
 import com.xiaohe.domain.entity.PageVo;
+import com.xiaohe.domain.vo.UpdateCategoryVo;
 import com.xiaohe.mapper.CategoryMapper;
 import com.xiaohe.service.CategoryService;
 import io.jsonwebtoken.lang.Strings;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -91,5 +94,19 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         }
         int i = categoryMapper.deleteBatchIds(ids);
         return i == ids.size();
+    }
+
+    /**
+     * 更改分类
+     * @param category
+     * @return
+     */
+    @Override
+    public boolean updateCategory(UpdateCategoryVo category) {
+        // 直接updte
+        Category category1 = new Category();
+        BeanUtils.copyProperties(category, category1);
+
+        return updateById(category1);
     }
 }

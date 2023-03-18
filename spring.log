@@ -156,3 +156,26 @@
 2023-03-18 11:57:22.823  INFO 17116 --- [http-nio-8989-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2023-03-18 11:57:24.400  INFO 17116 --- [http-nio-8989-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
 2023-03-18 11:57:24.499  INFO 17116 --- [http-nio-8989-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-18 16:09:52.384  INFO 8824 --- [main] com.xiaohe.BlogAdminApplication          : Starting BlogAdminApplication using Java 1.8.0_202 on ABC with PID 8824 (D:\JAVA-projects\Bolg\sangeng-admin\target\classes started by 23825 in D:\JAVA-projects\Bolg)
+2023-03-18 16:09:52.386  INFO 8824 --- [main] com.xiaohe.BlogAdminApplication          : No active profile set, falling back to default profiles: default
+2023-03-18 16:09:52.642  WARN 8824 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2023-03-18 16:09:52.935  INFO 8824 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-03-18 16:09:52.936  INFO 8824 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-03-18 16:09:52.962  INFO 8824 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2023-03-18 16:09:53.187  INFO 8824 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@b967222' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-03-18 16:09:53.189  INFO 8824 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-03-18 16:09:53.369  INFO 8824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8989 (http)
+2023-03-18 16:09:53.376  INFO 8824 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-18 16:09:53.376  INFO 8824 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-03-18 16:09:53.485  INFO 8824 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-18 16:09:53.486  INFO 8824 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1072 ms
+2023-03-18 16:09:56.119  INFO 8824 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15e8f9b2, org.springframework.security.web.context.SecurityContextPersistenceFilter@21edd891, org.springframework.security.web.header.HeaderWriterFilter@1b37fbec, org.springframework.security.web.authentication.logout.LogoutFilter@32ea16b7, com.xiaohe.filter.TokenAuthenticationFilter@7a65c995, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7971c2a9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d518c66, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c950b3b, org.springframework.security.web.session.SessionManagementFilter@7a31ca20, org.springframework.security.web.access.ExceptionTranslationFilter@6a1568d6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5287ba5f]
+2023-03-18 16:09:56.164  INFO 8824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8989 (http) with context path ''
+2023-03-18 16:09:56.172  INFO 8824 --- [main] com.xiaohe.BlogAdminApplication          : Started BlogAdminApplication in 4.103 seconds (JVM running for 5.174)
+2023-03-18 16:09:56.172  INFO 8824 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2023-03-18 16:09:56.173  INFO 8824 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2023-03-18 16:09:59.973  INFO 8824 --- [http-nio-8989-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-18 16:09:59.973  INFO 8824 --- [http-nio-8989-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-18 16:09:59.974  INFO 8824 --- [http-nio-8989-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-03-18 16:10:00.095  INFO 8824 --- [http-nio-8989-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-18 16:10:00.213  INFO 8824 --- [http-nio-8989-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.

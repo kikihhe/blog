@@ -3,6 +3,7 @@ package com.xiaohe.controller;
 import com.xiaohe.domain.entity.Category;
 import com.xiaohe.domain.entity.PageVo;
 import com.xiaohe.domain.vo.AddCategoryVo;
+import com.xiaohe.domain.vo.UpdateCategoryVo;
 import com.xiaohe.service.CategoryService;
 import com.xiaohe.utils.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -60,12 +61,21 @@ public class CategoryController {
         return Result.success(byId);
     }
 
-// TODO 更改分类
-//    @PutMapping
-//    public Result updateCategory() {
-//        categoryService.updateCategory()
-//        return null;
-//    }
+
+    /**
+     * 更改分类
+     * @param category
+     * @return
+     */
+    @PutMapping
+    public Result updateCategory(@Validated UpdateCategoryVo category) {
+        boolean b = categoryService.updateCategory(category);
+        if(b) {
+            return Result.success("更改成功");
+        } else {
+            return Result.error("更改失败");
+        }
+    }
 
     @DeleteMapping
     public Result updateCategory(List<Long> ids) {
