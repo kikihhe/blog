@@ -14,6 +14,7 @@ import com.xiaohe.mapper.UserMapper;
 import com.xiaohe.service.UserService;
 import io.jsonwebtoken.lang.Strings;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -124,5 +125,48 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         BeanUtils.copyProperties(user, userDto);
         userVo.setUser(userDto).setRoles(roleList).setRoleIds(roleIds);
         return userVo;
+    }
+
+    /**
+     * 更新user信息, 先删除后增加
+     * @param user
+     * @return
+     */
+    @Override
+    @Transactional
+    public boolean updateUser(AddUserVo user) {
+        // 先删除用户信息与用户角色关联信息
+        UserService userService = (UserService) AopContext.currentProxy();
+        ArrayList<Long> ids = new ArrayList<>();
+        ids.add(user.getId());
+        boolean b1 = userService.removeUser(ids);
+        // 再新增
+        boolean b = userService.addUser(user);
+
+
+        return b1 && b;
+    }
+
+    /**
+     * 批量删除用户，首先批量删除用户信息表，再删除用户角色关联表
+     * @param ids
+     * @return
+     */
+    @Override
+    @Transactional
+    public boolean removeUser(List<Long> ids) {
+        // 先删除用户表
+        int i = userMapper.deleteBatchIds(ids);
+        if (i != ids.size()) {
+            log.error("部分用户删除失败");
+            return false;
+        }
+        // 再删除用户与角色关联表, 只要id在ids里面的都删除
+        int j = userMapper.deleteUserAndRole(ids);
+        if (j != ids.size()) {
+            log.error("用户与角色关联表没删干净");
+            return false;
+        }
+        return true;
     }
 }

@@ -22,14 +22,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import sun.security.util.Password;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
+
+
 
 
 @RestController
@@ -144,7 +144,7 @@ public class UserController {
 
     @DeleteMapping("/system/user/{id}")
     public Result deleteUser(@PathVariable("id") List<Long> ids) {
-        boolean b = userService.removeByIds(ids);
+        boolean b = userService.removeUser(ids);
         if (b) {
             return Result.error("删除成功");
         } else {
@@ -154,11 +154,20 @@ public class UserController {
 
     @GetMapping("/system/user/{id}")
     public Result getUser(@PathVariable("id") Long id) {
-        // TODO 修改用户之前的回显数据，
         UserVo userVo = userService.getUserBeforeUpdate(id);
         if (Objects.isNull(userVo)) {
             return Result.error("该用户不存在");
         }
         return Result.success(userVo);
+    }
+
+    @PutMapping("/system/user")
+    public Result updateUser(@RequestBody AddUserVo user) {
+        boolean b = userService.updateUser(user);
+        if (b) {
+            return Result.success("更新成功");
+        } else {
+            return Result.error("更新失败");
+        }
     }
 }

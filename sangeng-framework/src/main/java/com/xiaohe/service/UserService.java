@@ -6,6 +6,8 @@ import com.xiaohe.domain.entity.User;
 import com.xiaohe.domain.vo.AddUserVo;
 import com.xiaohe.domain.vo.UserVo;
 
+import java.util.List;
+
 /**
  * @author : 小何
  * @Description :
@@ -19,4 +21,8 @@ public interface UserService extends IService<User> {
     public boolean addUser(AddUserVo addUserVo);
 
     public UserVo getUserBeforeUpdate(Long id);
+
+    public boolean updateUser(AddUserVo user);
+
+    public boolean removeUser(List<Long> ids);
 }

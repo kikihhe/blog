@@ -21,6 +21,7 @@ import java.util.List;
 @AllArgsConstructor
 @Accessors(chain = true)
 public class AddUserVo {
+    private Long id;
     //用户名
     @NotEmpty(message = "用户名不能为空")
     private String userName;

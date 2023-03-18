@@ -10,6 +10,13 @@
             (#{userId}, #{roleId})
         </foreach>
     </insert>
+    <delete id="deleteUserAndRole">
+        delete from user_role
+        wherre user_id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
 
 
     <select id="getUserByUsername" resultType="com.xiaohe.domain.entity.User">
