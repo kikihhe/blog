@@ -48,7 +48,7 @@ public class Category  {
     // 创建时间
     @TableField(fill = FieldFill.INSERT)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private LocalDateTime createTime;
+    private Date createTime;
 
     // 更改人的id
     @TableField(fill = FieldFill.INSERT_UPDATE)
@@ -57,7 +57,7 @@ public class Category  {
     // 最新更改时间
     @TableField(fill = FieldFill.INSERT_UPDATE)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private LocalDateTime updateTime;
+    private Date updateTime;
 
     //删除标志（0代表未删除，1代表已删除）
     private Integer delFlag;

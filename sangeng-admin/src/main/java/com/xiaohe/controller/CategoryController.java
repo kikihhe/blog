@@ -5,6 +5,7 @@ import com.xiaohe.domain.entity.PageVo;
 import com.xiaohe.domain.vo.AddCategoryVo;
 import com.xiaohe.domain.vo.UpdateCategoryVo;
 import com.xiaohe.service.CategoryService;
+import com.xiaohe.utils.IdUtil;
 import com.xiaohe.utils.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Delete;
@@ -78,7 +79,8 @@ public class CategoryController {
     }
 
     @DeleteMapping
-    public Result updateCategory(List<Long> ids) {
+    public Result updateCategory(String id) {
+        List<Long> ids = IdUtil.stringCastToList(id);
         boolean b = categoryService.daleteCategorys(ids);
         if (b) {
             return Result.success("删除成功");
@@ -86,4 +88,6 @@ public class CategoryController {
             return Result.error("删除失败");
         }
     }
+
+
 }

@@ -38,13 +38,9 @@ public class UserController {
      *
      */
     @GetMapping("/userInfo")
-    public Result userInfo() {
-        User user = ((LoginUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser();
-        Long id = user.getId();
-
-        User byId = userService.getById(id);
+    public Result userInfo(Long userId) {
+        User byId = userService.getById(userId);
         UserInfoVo userInfoVo = BeanUtil.copyProperties(byId, UserInfoVo.class);
-
         return Result.success(userInfoVo);
     }
 

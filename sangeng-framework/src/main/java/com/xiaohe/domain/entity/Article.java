@@ -59,7 +59,7 @@ public class Article implements Serializable {
     // 创建时间
     @TableField(fill = FieldFill.INSERT)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private LocalDateTime createTime;
+    private Date createTime;
 
     // 更改人的id
     @TableField(fill = FieldFill.INSERT_UPDATE)
@@ -68,7 +68,7 @@ public class Article implements Serializable {
     // 更改时间
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime updateTime;
+    private Date updateTime;
 
     // 逻辑删除字段（0代表未删除，1代表已删除）
     private Integer delFlag;
