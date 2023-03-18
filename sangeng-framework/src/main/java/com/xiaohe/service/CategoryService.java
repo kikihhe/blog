@@ -2,6 +2,7 @@ package com.xiaohe.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xiaohe.domain.entity.Category;
+import com.xiaohe.domain.entity.PageVo;
 
 import java.util.List;
 
@@ -13,4 +14,9 @@ import java.util.List;
 public interface CategoryService extends IService<Category> {
     // 查询分类列表，必须是正式发布的文章，且状态正常
     public List<Category> getCategoryList();
+
+
+    public PageVo selectPageList(Integer pageNum, Integer pageSize, String name, String status);
+
+    public boolean addCategory(Category category);
 }

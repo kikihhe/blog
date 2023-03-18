@@ -36,6 +36,7 @@ import java.util.concurrent.TimeUnit;
 public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
+
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
