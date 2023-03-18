@@ -62,4 +62,22 @@ public class LinkController {
         }
 
     }
+
+    @GetMapping("/{id}")
+    public Result getLinkById(@PathVariable("id") Long id) {
+        Link byId = linkService.getById(id);
+        return Result.success(byId);
+    }
+
+    @PutMapping
+    public Result updateLink(LinkVo linkVo) {
+        Link link = new Link();
+        BeanUtils.copyProperties(linkVo, link);
+        boolean b = linkService.updateById(link);
+        if (!b) {
+            return Result.error("更改失败");
+        } else{
+            return Result.success("更新成功");
+        }
+    }
 }
