@@ -19,4 +19,6 @@ public interface CategoryService extends IService<Category> {
     public PageVo selectPageList(Integer pageNum, Integer pageSize, String name, String status);
 
     public boolean addCategory(Category category);
+
+    public boolean daleteCategorys(List<Long> ids);
 }

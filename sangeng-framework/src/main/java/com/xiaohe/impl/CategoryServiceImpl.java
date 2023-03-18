@@ -63,6 +63,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
      * @return
      */
     @Override
+    @Transactional
     public boolean addCategory(Category category) {
         // 如果分类名重复，不能添加
         LambdaQueryWrapper<Category> lambda = new LambdaQueryWrapper<>();
@@ -73,5 +74,22 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         }
         // 开始添加
         return save(category);
+    }
+
+    /**
+     * 批量删除分类
+     * @param ids
+     * @return
+     */
+    @Override
+    @Transactional
+    public boolean daleteCategorys(List<Long> ids) {
+        // 查询分类下是否有文章，有则不能删除
+        List<Category> categories = categoryMapper.selectBatchIds(ids);
+        if (Objects.isNull(categories) || categories.size() == 0) {
+            throw new RuntimeException("该分类下有文章，不能删除");
+        }
+        int i = categoryMapper.deleteBatchIds(ids);
+        return i == ids.size();
     }
 }
