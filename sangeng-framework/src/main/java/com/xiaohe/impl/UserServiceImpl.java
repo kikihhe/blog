@@ -3,9 +3,13 @@ package com.xiaohe.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.xiaohe.domain.dto.UserDto;
 import com.xiaohe.domain.entity.PageVo;
+import com.xiaohe.domain.entity.Role;
 import com.xiaohe.domain.entity.User;
 import com.xiaohe.domain.vo.AddUserVo;
+import com.xiaohe.domain.vo.UserVo;
+import com.xiaohe.mapper.RoleMapper;
 import com.xiaohe.mapper.UserMapper;
 import com.xiaohe.service.UserService;
 import io.jsonwebtoken.lang.Strings;
@@ -15,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,6 +33,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private RoleMapper roleMapper;
+
+
 
 
     /**
@@ -64,7 +74,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         // 用户名、手机号、邮箱之前不能重复
         LambdaQueryWrapper<User> lambda = new LambdaQueryWrapper<>();
         lambda.eq(User::getUserName, addUserVo.getUserName()).or()
-                .eq(User::getPhoneNumber, addUserVo.getPhoneNumber()).or()
+                .eq(User::getPhoneNumber, addUserVo.getPhonenumber()).or()
                 .eq(User::getEmail, addUserVo.getEmail());
         List<User> list = list(lambda);
         if (list.size() > 0) {
@@ -85,5 +95,34 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         return a.equals(addUserVo.getRoleIds().size());
 
+    }
+
+    /**
+     * 查用户关联的角色的id
+     * @param id
+     * @return
+     */
+    @Override
+    @Transactional
+    public UserVo getUserBeforeUpdate(Long id) {
+        // 通过id获取用户关联的所有角色
+        List<Role> roles = roleMapper.selectRoleByUserId(id);
+        // 将角色id提取出来
+        List<Long> roleIds = new ArrayList<>();
+        roles.forEach(role -> {
+            roleIds.add(role.getId());
+        });
+        // 查询出所有状态正常的角色
+        LambdaQueryWrapper<Role> lambda = new LambdaQueryWrapper<>();
+        lambda.eq(Role::getStatus, "0");
+        List<Role> roleList = roleMapper.selectList(lambda);
+        // 查询出用户信息
+        User user = userMapper.selectById(id);
+        UserVo userVo = new UserVo();
+        UserDto userDto = new UserDto();
+        // 封装为addUserVo便于返回
+        BeanUtils.copyProperties(user, userDto);
+        userVo.setUser(userDto).setRoles(roleList).setRoleIds(roleIds);
+        return userVo;
     }
 }

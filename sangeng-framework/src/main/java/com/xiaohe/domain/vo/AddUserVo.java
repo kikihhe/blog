@@ -33,7 +33,7 @@ public class AddUserVo {
     //手机号
     @Phone(message = "手机号不符合格式")
     @TableField("phonenumber")
-    private String phoneNumber;
+    private String phonenumber;
     //用户性别（0男，1女，2未知）
     private String sex;
     //账号状态（0正常 1停用）

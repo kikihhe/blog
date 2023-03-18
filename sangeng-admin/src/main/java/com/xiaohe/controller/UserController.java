@@ -20,7 +20,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import sun.security.util.Password;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -36,6 +38,9 @@ public class UserController {
     private AuthenticationManager authenticationManager;
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private RoleService roleService;
@@ -127,6 +132,8 @@ public class UserController {
 
     @PostMapping("/system/user")
     public Result addUser(@RequestBody AddUserVo addUserVo) {
+        // 将密码加密处理
+        addUserVo.setPassword(passwordEncoder.encode(addUserVo.getPassword()));
         boolean b = userService.addUser(addUserVo);
         if (b) {
             return Result.success("新增成功");
@@ -145,10 +152,13 @@ public class UserController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/system/user/{id}")
     public Result getUser(@PathVariable("id") Long id) {
         // TODO 修改用户之前的回显数据，
-        return null;
-
+        UserVo userVo = userService.getUserBeforeUpdate(id);
+        if (Objects.isNull(userVo)) {
+            return Result.error("该用户不存在");
+        }
+        return Result.success(userVo);
     }
 }
