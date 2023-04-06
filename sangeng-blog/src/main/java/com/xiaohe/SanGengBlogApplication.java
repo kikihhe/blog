@@ -18,6 +18,8 @@ import java.util.concurrent.TimeUnit;
 @EnableTransactionManagement
 @EnableSwagger2
 public class SanGengBlogApplication {
+
+
     @Bean(name = "threadPoolExecutor")
     public ThreadPoolExecutor threadPoolExecutor() {
         return new ThreadPoolExecutor(2, 5, 10, TimeUnit.SECONDS,
